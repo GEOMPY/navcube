@@ -1,18 +1,13 @@
-"""
-example.py — geompy-display demo
-=================================
-Run:
-    python example.py
-"""
-
 from geompy_display import OCCDisplay, ViewCubeConfig
 
 cfg = ViewCubeConfig(
-    cube_size   = 100.0,
-    chamfer_r   =   8.0,
+    cube_size   = 30.0,
+    chamfer_r   =  5,
+    position    = "top-right",   # "top-right"|"top-left"|"bottom-right"|"bottom-left"
+    padding     =  4.0,
     silver      = (0.75, 0.75, 0.78),
     label_color = (0.0,  0.0,  0.0),
-    side_margin = 0.15,
+    side_margin =  0.15,
 )
 
 display = OCCDisplay(
@@ -24,14 +19,11 @@ display = OCCDisplay(
 
 @display.on_ready
 def populate(d):
-    from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
-    from OCC.Core.AIS         import AIS_Shape
-    from OCC.Core.Quantity    import Quantity_Color, Quantity_TOC_RGB
-
-    box = BRepPrimAPI_MakeBox(40, 25, 15).Shape()
-    ais = AIS_Shape(box)
-    ais.SetColor(Quantity_Color(0.2, 0.5, 0.9, Quantity_TOC_RGB))
-    d.context.Display(ais, True)
-    d.display.FitAll()
+    # Add your OCC geometry here:
+    # from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
+    # from OCC.Core.AIS import AIS_Shape
+    # d.context.Display(AIS_Shape(BRepPrimAPI_MakeBox(50,30,20).Shape()), True)
+    # d.display.FitAll()
+    pass
 
 display.start()
