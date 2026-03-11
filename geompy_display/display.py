@@ -20,11 +20,12 @@ Usage
     display.start()
 """
 
+import logging
 import sys
 import traceback
 
 from .viewcube_config import ViewCubeConfig
-from .viewcube        import ViewCube
+from .viewcube import ViewCube
 
 
 class OCCDisplay:
@@ -41,7 +42,7 @@ class OCCDisplay:
     bg_color : tuple           — background RGB [0..1]
     """
 
-    _app    = None   # QApplication singleton
+    _app = None   # QApplication singleton
     _backend_loaded = False
 
     @classmethod
@@ -61,28 +62,28 @@ class OCCDisplay:
 
     def __init__(
         self,
-        title    : str            = "OCC Viewer",
-        width    : int            = 1100,
-        height   : int            = 800,
-        viewcube : ViewCubeConfig = None,
-        bg_color : tuple          = (0.32, 0.32, 0.32),
+        title: str = "OCC Viewer",
+        width: int = 1100,
+        height: int = 800,
+        viewcube: ViewCubeConfig = None,
+        bg_color: tuple = (0.32, 0.32, 0.32),
     ):
-        self.title    = title
-        self.width    = width
-        self.height   = height
+        self.title = title
+        self.width = width
+        self.height = height
         self.bg_color = bg_color
-        self._cfg     = viewcube if viewcube is not None else ViewCubeConfig()
-        self._cube    = ViewCube(self._cfg)
+        self._cfg = viewcube if viewcube is not None else ViewCubeConfig()
+        self._cube = ViewCube(self._cfg)
 
         # Public OCC handles — set after _init_scene
-        self.display  = None   # Viewer3d
-        self.context  = None   # AIS_InteractiveContext
-        self.view     = None   # V3d_View
+        self.display = None   # Viewer3d
+        self.context = None   # AIS_InteractiveContext
+        self.view = None   # V3d_View
 
-        self._win          = None
-        self._viewer       = None
-        self._zoom_timer   = None
-        self._on_ready_cb  = []
+        self._win = None
+        self._viewer = None
+        self._zoom_timer = None
+        self._on_ready_cb = []
 
     # ── Public API ─────────────────────────────────────────────────────────────
 
@@ -157,7 +158,7 @@ class OCCDisplay:
 
             self.display = self._viewer._display
             self.context = self.display.Context
-            self.view    = self.display.View
+            self.view = self.display.View
 
             # FitAll FIRST — Scale()/Convert() must be valid before cube placement
             self.display.View_Iso()
@@ -194,4 +195,5 @@ class OCCDisplay:
             scale = self.view.Scale()
             self._cube.update_line_width(self.context, scale)
         except Exception:
-            pass
+            logging.getLogger(__name__).debug(
+                "zoom tick failed", exc_info=True)
