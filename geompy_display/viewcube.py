@@ -89,6 +89,18 @@ def _face_defs(size):
     ]
 
 
+def _position_offset(pos, cx, cz, half_w, half_h, s, p):
+    """Return (dx, dz) for the given corner position."""
+    if pos == "top-right":
+        return cx + half_w - s - p, cz + half_h - s - p
+    elif pos == "top-left":
+        return cx - half_w + p, cz + half_h - s - p
+    elif pos == "bottom-right":
+        return cx + half_w - s - p, cz - half_h + p
+    else:  # bottom-left
+        return cx - half_w + p, cz - half_h + p
+
+
 def _corner_offset(position, cube_size, padding, viewer_widget):
     """
     Compute (dx, dy, dz, world_size).
@@ -97,6 +109,7 @@ def _corner_offset(position, cube_size, padding, viewer_widget):
     Position is computed from the actual view projection — we read
     the view centre in world space and add the half-extents.
     """
+    pos = position.lower()
     try:
         view = viewer_widget._display.View
         scale = view.Scale()            # pixels per world unit
@@ -115,54 +128,18 @@ def _corner_offset(position, cube_size, padding, viewer_widget):
         half_h = (height / 2.0) / scale
 
         # view centre in world space (where the camera is looking)
-        cx, cy, cz = view.ViewAxisIntersectWithZPlane(0)
+        try:
+            cx, cy, cz = view.ViewAxisIntersectWithZPlane(0)
+        except Exception:
+            cx, cz = 0.0, 0.0
 
-        s, p = world_size, pad_world
-        pos = position.lower()
-
-        if pos == "top-right":
-            return cx + half_w - s - p,  0,  cz + half_h - s - p,  s
-        elif pos == "top-left":
-            return cx - half_w + p,      0,  cz + half_h - s - p,  s
-        elif pos == "bottom-right":
-            return cx + half_w - s - p,  0,  cz - half_h + p,       s
-        else:  # bottom-left
-            return cx - half_w + p,      0,  cz - half_h + p,        s
+        dx, dz = _position_offset(pos, cx, cz, half_w, half_h, world_size, pad_world)
+        return dx, 0, dz, world_size
 
     except Exception:
-        try:
-            # Fallback: no view centre, assume origin
-            view = viewer_widget._display.View
-            scale = view.Scale()
-            if not scale or scale <= 0:
-                raise ValueError("view scale not ready")
-            width = viewer_widget.width()
-            height = viewer_widget.height()
-            target_px = min(width, height) * 0.10
-            world_size = target_px / scale
-            pad_world = world_size * 0.08
-            half_w = (width / 2.0) / scale
-            half_h = (height / 2.0) / scale
-            s, p = world_size, pad_world
-            pos = position.lower()
-            if pos == "top-right":
-                return half_w - s - p, 0,  half_h - s - p, s
-            elif pos == "top-left":
-                return -half_w + p,     0,  half_h - s - p, s
-            elif pos == "bottom-right":
-                return half_w - s - p, 0, -half_h + p,    s
-            else:
-                return -half_w + p,     0, -half_h + p,     s
-        except Exception:
-            o = cube_size * 3
-            pos = position.lower()
-            if pos == "top-right":
-                return o, 0,  o, cube_size
-            if pos == "top-left":
-                return -o, 0,  o, cube_size
-            if pos == "bottom-right":
-                return o, 0, -o, cube_size
-            return -o, 0, -o, cube_size
+        o = cube_size * 3
+        dx, dz = _position_offset(pos, 0, 0, o + cube_size, o + cube_size, cube_size, 0)
+        return dx, 0, dz, cube_size
 
 
 # ── ViewCube ───────────────────────────────────────────────────────────────────
