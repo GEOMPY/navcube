@@ -139,8 +139,7 @@ class OCCDisplay:
     def EraseAll(self):
         """Erase all user shapes but KEEP the ViewCube."""
         self.context.EraseAll(False)
-        self._cube.show(self.context, self._viewer)
-        self.context.UpdateCurrentViewer()
+        self._cube.redisplay(self.context)
 
     # ── Window ─────────────────────────────────────────────────────────────────
 

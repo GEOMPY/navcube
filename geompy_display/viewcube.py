@@ -257,6 +257,14 @@ class ViewCube:
             ctx.Erase(ais, False)
         ctx.UpdateCurrentViewer()
 
+    def redisplay(self, ctx):
+        """Re-display previously built AIS objects without rebuilding geometry."""
+        if self._ais_cube is not None:
+            ctx.Display(self._ais_cube, False)
+            for ais in self._label_ais:
+                ctx.Display(ais, False)
+            ctx.UpdateCurrentViewer()
+
     def update_line_width(self, ctx, view_scale: float):
         w = max(1, min(3, round(view_scale * self.cfg.cube_size * 0.015)))
         if w == self._last_width:
