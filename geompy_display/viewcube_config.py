@@ -52,11 +52,20 @@ class ViewCubeConfig:
     _GAP_RATIO:  float = field(default=0.25,     init=False, repr=False)
     _LONGEST:    str = field(default="BOTTOM", init=False, repr=False)
 
+    @staticmethod
+    def _validate_color(name: str, value):
+        if (not isinstance(value, (tuple, list))
+                or len(value) != 3
+                or not all(isinstance(c, (int, float)) and 0.0 <= c <= 1.0 for c in value)):
+            raise ValueError(f"{name} must be an (R, G, B) tuple with values in [0..1]")
+
     def __post_init__(self):
         if self.position not in POSITIONS:
             raise ValueError(f"position must be one of {POSITIONS}")
         if self.chamfer_r >= self.cube_size / 4:
             raise ValueError("chamfer_r must be < cube_size / 4")
+        self._validate_color("silver", self.silver)
+        self._validate_color("label_color", self.label_color)
         self._recalc()
 
     def _recalc(self):
