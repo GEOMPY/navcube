@@ -84,6 +84,7 @@ class OCCDisplay:
         self._win = None
         self._viewer = None
         self._zoom_timer = None
+        self._last_scale = None
         self._on_ready_cb = []
 
     # ── Public API ─────────────────────────────────────────────────────────────
@@ -197,7 +198,9 @@ class OCCDisplay:
             return
         try:
             scale = self.view.Scale()
+            if scale == self._last_scale:
+                return
+            self._last_scale = scale
             self._cube.update_line_width(self.context, scale)
         except Exception:
-            logging.getLogger(__name__).debug(
-                "zoom tick failed", exc_info=True)
+            log.debug("zoom tick failed", exc_info=True)
