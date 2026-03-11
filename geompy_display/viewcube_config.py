@@ -60,6 +60,12 @@ class ViewCubeConfig:
             raise ValueError(f"{name} must be an (R, G, B) tuple with values in [0..1]")
 
     def __post_init__(self):
+        if self.cube_size <= 0:
+            raise ValueError("cube_size must be positive")
+        if self.chamfer_r < 0:
+            raise ValueError("chamfer_r must be non-negative")
+        if self.padding < 0:
+            raise ValueError("padding must be non-negative")
         if self.position not in POSITIONS:
             raise ValueError(f"position must be one of {POSITIONS}")
         if self.chamfer_r >= self.cube_size / 4:
