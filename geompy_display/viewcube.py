@@ -219,11 +219,6 @@ class ViewCube:
         # ── Body ──────────────────────────────────────────────────────────────
         # Build cube at world_size, not cfg.cube_size
         s, r = world_size, chamfer
-        from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
-        from OCC.Core.BRepFilletAPI import BRepFilletAPI_MakeChamfer
-        from OCC.Core.TopExp import TopExp_Explorer
-        from OCC.Core.TopAbs import TopAbs_EDGE
-        from OCC.Core.TopoDS import topods
         box = BRepPrimAPI_MakeBox(s, s, s).Shape()
         cf = BRepFilletAPI_MakeChamfer(box)
         exp = TopExp_Explorer(box, TopAbs_EDGE)
