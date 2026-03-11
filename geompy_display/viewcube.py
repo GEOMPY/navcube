@@ -133,12 +133,14 @@ def _corner_offset(position, cube_size, padding, viewer_widget):
         except Exception:
             cx, cz = 0.0, 0.0
 
-        dx, dz = _position_offset(pos, cx, cz, half_w, half_h, world_size, pad_world)
+        dx, dz = _position_offset(
+            pos, cx, cz, half_w, half_h, world_size, pad_world)
         return dx, 0, dz, world_size
 
     except Exception:
         o = cube_size * 3
-        dx, dz = _position_offset(pos, 0, 0, o + cube_size, o + cube_size, cube_size, 0)
+        dx, dz = _position_offset(
+            pos, 0, 0, o + cube_size, o + cube_size, cube_size, 0)
         return dx, 0, dz, cube_size
 
 
@@ -208,9 +210,11 @@ class ViewCube:
         self._ais_cube.SetColor(silver)
         ctx.Display(self._ais_cube, True)
 
-        # ── Labels — single pass, clean single lines ─────────────────────────
+        # ── Labels — build all faces into a single compound ─────────────────
         lc = Quantity_Color(*cfg.label_color, Quantity_TOC_RGB)
-        self._label_ais = []
+        all_labels_builder = BRep_Builder()
+        all_labels_compound = TopoDS_Compound()
+        all_labels_builder.MakeCompound(all_labels_compound)
 
         for label, centre, u_dir, v_dir in _face_defs(world_size):
             sc = gp_Pnt(centre.X() + dx, centre.Y() + dy, centre.Z() + dz)
@@ -218,11 +222,13 @@ class ViewCube:
                 label, sc, u_dir, v_dir,
                 char_h, cfg.char_aspect, char_g,
             )
-            ais = AIS_Shape(compound)
-            ais.SetColor(lc)
-            ais.SetWidth(cfg.line_width)
-            ctx.Display(ais, False)
-            self._label_ais.append(ais)
+            all_labels_builder.Add(all_labels_compound, compound)
+
+        ais_labels = AIS_Shape(all_labels_compound)
+        ais_labels.SetColor(lc)
+        ais_labels.SetWidth(cfg.line_width)
+        ctx.Display(ais_labels, False)
+        self._label_ais = [ais_labels]
 
         ctx.UpdateCurrentViewer()
 
