@@ -22,10 +22,11 @@ Usage
 
 import logging
 import sys
-import traceback
 
 from .viewcube_config import ViewCubeConfig
 from .viewcube import ViewCube
+
+log = logging.getLogger(__name__)
 
 
 class OCCDisplay:
@@ -182,13 +183,12 @@ class OCCDisplay:
                 try:
                     fn(self)
                 except Exception:
-                    traceback.print_exc()
+                    log.exception("on_ready callback %s failed", fn.__name__)
 
-            print("[OCCDisplay] ready — ViewCube active.")
+            log.info("ready — ViewCube active.")
 
         except Exception:
-            print("[OCCDisplay] ERROR during scene init:")
-            traceback.print_exc()
+            log.exception("scene init failed")
 
     # ── Zoom tick ──────────────────────────────────────────────────────────────
 
