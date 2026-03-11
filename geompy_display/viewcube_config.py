@@ -57,7 +57,8 @@ class ViewCubeConfig:
         if (not isinstance(value, (tuple, list))
                 or len(value) != 3
                 or not all(isinstance(c, (int, float)) and 0.0 <= c <= 1.0 for c in value)):
-            raise ValueError(f"{name} must be an (R, G, B) tuple with values in [0..1]")
+            raise ValueError(
+                f"{name} must be an (R, G, B) tuple with values in [0..1]")
 
     def __post_init__(self):
         if self.cube_size <= 0:
@@ -82,6 +83,12 @@ class ViewCubeConfig:
             (n * self.char_aspect + (n - 1) * self._GAP_RATIO)
         self.char_gap = self._GAP_RATIO * self.char_height
 
+    # Fields that can be set via update()
+    _UPDATABLE = frozenset({
+        "cube_size", "chamfer_r", "position", "padding",
+        "silver", "label_color", "side_margin", "char_aspect", "line_width",
+    })
+
     def update(self, **kwargs):
         """Update any parameter and recompute derived values.
 
@@ -89,8 +96,9 @@ class ViewCubeConfig:
             cfg.update(cube_size=25, position="bottom-left")
         """
         for k, v in kwargs.items():
-            if not hasattr(self, k):
-                raise AttributeError(f"ViewCubeConfig has no parameter '{k}'")
+            if k not in self._UPDATABLE:
+                raise AttributeError(
+                    f"ViewCubeConfig has no updatable parameter '{k}'")
             object.__setattr__(self, k, v)
         self.__post_init__()
         return self
