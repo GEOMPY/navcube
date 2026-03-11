@@ -12,7 +12,6 @@ from OCC.Core.BRep import BRep_Builder
 from OCC.Core.BRepBuilderAPI import BRepBuilderAPI_MakeEdge, BRepBuilderAPI_Transform
 from OCC.Core.AIS import AIS_Shape
 from OCC.Core.Quantity import Quantity_Color, Quantity_TOC_RGB
-from OCC.Core.BRepMesh import BRepMesh_IncrementalMesh
 from OCC.Core.gp import gp_Pnt, gp_Dir, gp_Trsf, gp_Vec
 from OCC.Core.TopoDS import topods, TopoDS_Compound
 from OCC.Core.TopAbs import TopAbs_EDGE
