@@ -100,14 +100,18 @@ class OCCDisplay:
         return fn
 
     def start(self):
-        """Open the window and enter the Qt event loop. Blocks until closed."""
+        """Open the window and enter the Qt event loop. Blocks until closed.
+
+        Returns the Qt application exit code instead of calling sys.exit(),
+        so the caller (or hosting application) can decide what to do.
+        """
         self._ensure_app()
         self._ensure_backend()
         self._build_window()
 
         from PySide6.QtCore import QTimer
         QTimer.singleShot(200, self._init_scene)
-        sys.exit(self._app.exec())
+        return self._app.exec()
 
     # ── Delegates ──────────────────────────────────────────────────────────────
 
