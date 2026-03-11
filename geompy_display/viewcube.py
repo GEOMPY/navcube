@@ -101,6 +101,8 @@ def _corner_offset(position, cube_size, padding, viewer_widget):
     try:
         view = viewer_widget._display.View
         scale = view.Scale()            # pixels per world unit
+        if not scale or scale <= 0:
+            raise ValueError("view scale not ready")
         width = viewer_widget.width()
         height = viewer_widget.height()
 
@@ -133,6 +135,8 @@ def _corner_offset(position, cube_size, padding, viewer_widget):
             # Fallback: no view centre, assume origin
             view = viewer_widget._display.View
             scale = view.Scale()
+            if not scale or scale <= 0:
+                raise ValueError("view scale not ready")
             width = viewer_widget.width()
             height = viewer_widget.height()
             target_px = min(width, height) * 0.10
