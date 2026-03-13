@@ -42,11 +42,11 @@ class ViewCubeConfig:
 
     Attributes:
         cube_size: Size of the cube in world units. Defaults to 25.0.
-        chamfer_r: Radius of chamfered (beveled) corners in world units. 
+        chamfer_r: Radius of chamfered (beveled) corners in world units.
             Defaults to 2.0. Must be < cube_size / 4.
         position: Corner position. One of POSITIONS. Defaults to "top-right".
         padding: Gap between cube and viewport edge in world units. Defaults to 5.0.
-        silver: RGB color of cube faces, each channel in [0..1]. 
+        silver: RGB color of cube faces, each channel in [0..1].
             Defaults to (0.75, 0.75, 0.78).
         label_color: RGB color of text labels, each channel in [0..1].
             Defaults to (0.0, 0.0, 0.0) for black.
@@ -59,33 +59,35 @@ class ViewCubeConfig:
         char_gap: Computed gap between characters (derived field, read-only).
 
     Raises:
-        ValueError: If parameters fail validation (e.g., invalid colors, 
+        ValueError: If parameters fail validation (e.g., invalid colors,
             cube_size <= 0, invalid position).
     """
 
     # ── Geometry ──────────────────────────────────────────────────────────────
-    cube_size: float = 25.0    # mm — keep small, it's just a nav aid
-    chamfer_r: float = 2.0   # mm — bevel (<cube_size/4)
+    cube_size: float = 25.0  # mm — keep small, it's just a nav aid
+    chamfer_r: float = 2.0  # mm — bevel (<cube_size/4)
 
     # ── Position ──────────────────────────────────────────────────────────────
-    position: str = "top-right"   # "top-right" | "top-left" |"bottom-right" | "bottom-left"
-    padding: float = 5.0           # mm — gap between cube and viewport edge
+    position: str = (
+        "top-right"  # "top-right" | "top-left" |"bottom-right" | "bottom-left"
+    )
+    padding: float = 5.0  # mm — gap between cube and viewport edge
 
     # ── Colours (R, G, B) each in [0..1] ─────────────────────────────────────
     silver: Tuple[float, float, float] = (0.75, 0.75, 0.78)
-    label_color: Tuple[float, float, float] = (0.0,  0.0,  0.0)
+    label_color: Tuple[float, float, float] = (0.0, 0.0, 0.0)
 
     # ── Text ──────────────────────────────────────────────────────────────────
-    side_margin: float = 0.15   # fraction of flat-face kept empty each side
-    char_aspect: float = 0.60   # char width = char_height * char_aspect
+    side_margin: float = 0.15  # fraction of flat-face kept empty each side
+    char_aspect: float = 0.60  # char width = char_height * char_aspect
 
     # ── Rendering ─────────────────────────────────────────────────────────────
-    line_width: int = 1      # px — keep at 1, zoom-adaptive will handle thickness
+    line_width: int = 1  # px — keep at 1, zoom-adaptive will handle thickness
 
     # ── Derived ───────────────────────────────────────────────────────────────
     char_height: float = field(init=False)
     char_gap: float = field(init=False)
-    _GAP_RATIO: float = field(default=0.25,     init=False, repr=False)
+    _GAP_RATIO: float = field(default=0.25, init=False, repr=False)
     _LONGEST: str = field(default="BOTTOM", init=False, repr=False)
 
     @staticmethod
@@ -97,14 +99,15 @@ class ViewCubeConfig:
             value: Tuple/list to validate as RGB color.
 
         Raises:
-            ValueError: If value is not a 3-element tuple/list with 
+            ValueError: If value is not a 3-element tuple/list with
                 floats in [0..1].
         """
-        if (not isinstance(value, (tuple, list))
-                or len(value) != 3
-                or not all(isinstance(c, (int, float)) and 0.0 <= c <= 1.0 for c in value)):
-            raise ValueError(
-                f"{name} must be an (R, G, B) tuple with values in [0..1]")
+        if (
+            not isinstance(value, (tuple, list))
+            or len(value) != 3
+            or not all(isinstance(c, (int, float)) and 0.0 <= c <= 1.0 for c in value)
+        ):
+            raise ValueError(f"{name} must be an (R, G, B) tuple with values in [0..1]")
 
     def __post_init__(self) -> None:
         """Validate all parameters and compute derived fields.
@@ -139,17 +142,27 @@ class ViewCubeConfig:
         n = len(self._LONGEST)
         flat = self.cube_size - 2.0 * self.chamfer_r
         usable = flat * (1.0 - 2.0 * self.side_margin)
-        self.char_height = usable / \
-            (n * self.char_aspect + (n - 1) * self._GAP_RATIO)
+        self.char_height = usable / (n * self.char_aspect + (n - 1) * self._GAP_RATIO)
         self.char_gap = self._GAP_RATIO * self.char_height
 
     # Fields that can be set via update()
-    _UPDATABLE: frozenset[str] = frozenset({
-        "cube_size", "chamfer_r", "position", "padding",
-        "silver", "label_color", "side_margin", "char_aspect", "line_width",
-    })
+    _UPDATABLE: frozenset[str] = frozenset(
+        {
+            "cube_size",
+            "chamfer_r",
+            "position",
+            "padding",
+            "silver",
+            "label_color",
+            "side_margin",
+            "char_aspect",
+            "line_width",
+        }
+    )
 
-    def update(self, **kwargs: float | str | int | Tuple[float, float, float]) -> "ViewCubeConfig":
+    def update(
+        self, **kwargs: float | str | int | Tuple[float, float, float]
+    ) -> "ViewCubeConfig":
         """Update configuration parameters and recompute derived values.
 
         Allows selective updates of updatable parameters without recreating
@@ -175,8 +188,7 @@ class ViewCubeConfig:
         """
         for k, v in kwargs.items():
             if k not in self._UPDATABLE:
-                raise AttributeError(
-                    f"ViewCubeConfig has no updatable parameter '{k}'")
+                raise AttributeError(f"ViewCubeConfig has no updatable parameter '{k}'")
             object.__setattr__(self, k, v)
         self.__post_init__()
         return self

@@ -37,7 +37,6 @@ from OCC.Core.TopExp import TopExp_Explorer
 from OCC.Core.BRepFilletAPI import BRepFilletAPI_MakeChamfer
 from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
 import logging
-import traceback
 
 log = logging.getLogger(__name__)
 
@@ -46,12 +45,14 @@ try:
     from OCC.Core.Aspect import Aspect_TOTP_RIGHT_LOWER
     from OCC.Core.V3d import V3d_ZBUFFER
     from OCC.Core.Quantity import Quantity_NOC_RED
+
     _HAS_TRIEDRON = True
 except ImportError:
     _HAS_TRIEDRON = False
 
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
+
 
 def _translate(shape: TopoDS_Shape, dx: float, dy: float, dz: float) -> TopoDS_Shape:
     """Translate a shape by the given offset.
@@ -115,17 +116,27 @@ def _build_text_edges(
         for stroke in GLYPHS.get(ch, []):
             pts = []
             for lx, ly in stroke:
-                px = ox + (cursor + lx*char_width) * \
-                    u_dir.X() + ly*char_height*v_dir.X()
-                py = oy + (cursor + lx*char_width) * \
-                    u_dir.Y() + ly*char_height*v_dir.Y()
-                pz = oz + (cursor + lx*char_width) * \
-                    u_dir.Z() + ly*char_height*v_dir.Z()
+                px = (
+                    ox
+                    + (cursor + lx * char_width) * u_dir.X()
+                    + ly * char_height * v_dir.X()
+                )
+                py = (
+                    oy
+                    + (cursor + lx * char_width) * u_dir.Y()
+                    + ly * char_height * v_dir.Y()
+                )
+                pz = (
+                    oz
+                    + (cursor + lx * char_width) * u_dir.Z()
+                    + ly * char_height * v_dir.Z()
+                )
                 pts.append(gp_Pnt(px, py, pz))
             for i in range(len(pts) - 1):
                 try:
-                    builder.Add(compound, BRepBuilderAPI_MakeEdge(
-                        pts[i], pts[i+1]).Edge())
+                    builder.Add(
+                        compound, BRepBuilderAPI_MakeEdge(pts[i], pts[i + 1]).Edge()
+                    )
                 except Exception:
                     log.warning("Skipping degenerate edge in glyph '%s'", ch)
         cursor += char_width + char_gap
@@ -151,12 +162,12 @@ def _face_defs(size: float) -> list[Tuple[str, gp_Pnt, gp_Dir, gp_Dir]]:
     """
     h, e = size / 2.0, 0.02
     return [
-        ("FRONT",  gp_Pnt(h,      -e,      h), gp_Dir(1, 0, 0), gp_Dir(0, 0, 1)),
-        ("BACK",   gp_Pnt(h,  size+e,      h), gp_Dir(-1, 0, 0), gp_Dir(0, 0, 1)),
-        ("LEFT",   gp_Pnt(-e,      h,      h), gp_Dir(0, -1, 0), gp_Dir(0, 0, 1)),
-        ("RIGHT",  gp_Pnt(size+e,  h,      h), gp_Dir(0, 1, 0), gp_Dir(0, 0, 1)),
-        ("TOP",    gp_Pnt(h,       h,  size+e), gp_Dir(1, 0, 0), gp_Dir(0, 1, 0)),
-        ("BOTTOM", gp_Pnt(h,       h,     -e), gp_Dir(1, 0, 0), gp_Dir(0, -1, 0)),
+        ("FRONT", gp_Pnt(h, -e, h), gp_Dir(1, 0, 0), gp_Dir(0, 0, 1)),
+        ("BACK", gp_Pnt(h, size + e, h), gp_Dir(-1, 0, 0), gp_Dir(0, 0, 1)),
+        ("LEFT", gp_Pnt(-e, h, h), gp_Dir(0, -1, 0), gp_Dir(0, 0, 1)),
+        ("RIGHT", gp_Pnt(size + e, h, h), gp_Dir(0, 1, 0), gp_Dir(0, 0, 1)),
+        ("TOP", gp_Pnt(h, h, size + e), gp_Dir(1, 0, 0), gp_Dir(0, 1, 0)),
+        ("BOTTOM", gp_Pnt(h, h, -e), gp_Dir(1, 0, 0), gp_Dir(0, -1, 0)),
     ]
 
 
@@ -223,7 +234,7 @@ def _corner_offset(
     pos = position.lower()
     try:
         view = viewer_widget._display.View
-        scale = view.Scale()            # pixels per world unit
+        scale = view.Scale()  # pixels per world unit
         if not scale or scale <= 0:
             raise ValueError("view scale not ready")
         width = viewer_widget.width()
@@ -232,7 +243,7 @@ def _corner_offset(
         # cube size = 10% of smaller viewport side in world units
         target_px = min(width, height) * 0.10
         world_size = target_px / scale
-        pad_world = world_size * 0.08   # 8% of cube as padding
+        pad_world = world_size * 0.08  # 8% of cube as padding
 
         # half extents of the visible viewport in world units
         half_w = (width / 2.0) / scale
@@ -244,18 +255,17 @@ def _corner_offset(
         except Exception:
             cx, cz = 0.0, 0.0
 
-        dx, dz = _position_offset(
-            pos, cx, cz, half_w, half_h, world_size, pad_world)
+        dx, dz = _position_offset(pos, cx, cz, half_w, half_h, world_size, pad_world)
         return dx, 0, dz, world_size
 
     except Exception:
         o = cube_size * 3
-        dx, dz = _position_offset(
-            pos, 0, 0, o + cube_size, o + cube_size, cube_size, 0)
+        dx, dz = _position_offset(pos, 0, 0, o + cube_size, o + cube_size, cube_size, 0)
         return dx, 0, dz, cube_size
 
 
 # ── ViewCube ───────────────────────────────────────────────────────────────────
+
 
 class ViewCube:
     """Builder and manager for 3D orientation cube with labeled faces.
@@ -328,13 +338,15 @@ class ViewCube:
             cfg.position, cfg.cube_size, cfg.padding, viewer_widget
         )
 
-        # Recompute font metrics for the actual world_size used
-        from .viewcube_config import ViewCubeConfig as _VCC, POSITIONS
+        # # Recompute font metrics for the actual world_size used
+        # from .viewcube_config import ViewCubeConfig as _VCC, POSITIONS
+
         _n = len("BOTTOM")
         _flat = world_size - 2.0 * (cfg.chamfer_r / cfg.cube_size * world_size)
         _usable = _flat * (1.0 - 2.0 * cfg.side_margin)
-        _ch = _usable / (_n * cfg.char_aspect + (_n - 1) *
-                         0.25 * cfg.char_aspect / cfg.char_aspect)
+        _ch = _usable / (
+            _n * cfg.char_aspect + (_n - 1) * 0.25 * cfg.char_aspect / cfg.char_aspect
+        )
         _cg = 0.25 * _ch
         # simpler: just scale char_height proportionally
         scale_f = world_size / cfg.cube_size
@@ -367,8 +379,13 @@ class ViewCube:
         for label, centre, u_dir, v_dir in _face_defs(world_size):
             sc = gp_Pnt(centre.X() + dx, centre.Y() + dy, centre.Z() + dz)
             compound = _build_text_edges(
-                label, sc, u_dir, v_dir,
-                char_h, cfg.char_aspect, char_g,
+                label,
+                sc,
+                u_dir,
+                v_dir,
+                char_h,
+                cfg.char_aspect,
+                char_g,
             )
             all_labels_builder.Add(all_labels_compound, compound)
 

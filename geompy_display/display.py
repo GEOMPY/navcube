@@ -20,7 +20,7 @@ from __future__ import annotations
 
 import logging
 import sys
-from typing import Callable, TYPE_CHECKING
+from typing import Any, Callable, TYPE_CHECKING
 
 from .viewcube_config import ViewCubeConfig
 from .viewcube import ViewCube
@@ -29,8 +29,11 @@ if TYPE_CHECKING:
     from OCC.Core.AIS import AIS_InteractiveContext
     from OCC.Core.V3d import V3d_View
     from OCC.Display.qtDisplay import qtViewer3d
+    from OCC.Display.SimpleGui import Viewer3d
     from PySide6.QtWidgets import QMainWindow
     from PySide6.QtCore import QTimer
+    from PySide6.QtWidgets import QApplication
+
 
 log = logging.getLogger(__name__)
 
@@ -74,7 +77,9 @@ class OCCDisplay:
             >>> display = OCCDisplay(title="Custom", viewcube=cfg, width=1200, height=900)
     """
 
-    _app: object | None = None   # QApplication singleton (PySide6.QtWidgets.QApplication)
+    _app: QApplication | None = (
+        None  # QApplication singleton (PySide6.QtWidgets.QApplication)
+    )
     _backend_loaded: bool = False
 
     @classmethod
@@ -85,6 +90,7 @@ class OCCDisplay:
         This must be called before creating vieweres.
         """
         from PySide6.QtWidgets import QApplication
+
         if cls._app is None:
             cls._app = QApplication.instance() or QApplication(sys.argv)
 
@@ -97,6 +103,7 @@ class OCCDisplay:
         """
         if not cls._backend_loaded:
             from OCC.Display.backend import load_backend
+
             load_backend("pyside6")
             cls._backend_loaded = True
 
@@ -124,11 +131,13 @@ class OCCDisplay:
         self.width: int = width
         self.height: int = height
         self.bg_color: tuple[float, float, float] = bg_color
-        self._cfg: ViewCubeConfig = viewcube if viewcube is not None else ViewCubeConfig()
+        self._cfg: ViewCubeConfig = (
+            viewcube if viewcube is not None else ViewCubeConfig()
+        )
         self._cube: ViewCube = ViewCube(self._cfg)
 
         # Public OCC handles — set after _init_scene
-        self.display: object | None = None   # Viewer3d
+        self.display: Viewer3d | None = None  # Viewer3d
         self.context: AIS_InteractiveContext | None = None
         self.view: V3d_View | None = None
 
@@ -138,7 +147,9 @@ class OCCDisplay:
         self._last_scale: float | None = None
         self._on_ready_cb: list[Callable[["OCCDisplay"], None]] = []
 
-    def on_ready(self, fn: Callable[["OCCDisplay"], None]) -> Callable[["OCCDisplay"], None]:
+    def on_ready(
+        self, fn: Callable[["OCCDisplay"], None]
+    ) -> Callable[["OCCDisplay"], None]:
         """Register callback to run after viewer initialization.
 
         The callback receives the initialized OCCDisplay instance as its sole argument,
@@ -180,12 +191,17 @@ class OCCDisplay:
         self._build_window()
 
         from PySide6.QtCore import QTimer
+
         QTimer.singleShot(200, self._init_scene)
-        return self._app.exec()
+        if self._app is not None:
+            return self._app.exec()
+        else:
+            log.warning("QApplication instance not found when starting event loop")
+            return 1
 
     # ── Delegates ──────────────────────────────────────────────────────────────
 
-    def DisplayShape(self, shape: object, update: bool = True) -> object:
+    def DisplayShape(self, shape: Any, update: bool = True) -> Any:
         """Display a TopoDS shape in the viewer.
 
         Wraps the shape in an AIS_Shape and displays it in the context.
@@ -206,8 +222,12 @@ class OCCDisplay:
             ...     ais = d.DisplayShape(shape)
         """
         from OCC.Core.AIS import AIS_Shape
+
         ais = AIS_Shape(shape)
-        self.context.Display(ais, update)
+        if self.context is not None:
+            self.context.Display(ais, update)
+        else:
+            log.warning("DisplayShape called before context is initialized")
         return ais
 
     def FitAll(self) -> None:
@@ -215,36 +235,54 @@ class OCCDisplay:
 
         Adjusts the camera and zoom level to show all displayed shapes.
         """
-        self.display.FitAll()
+        if self.display is not None:
+            self.display.FitAll()
+        else:
+            log.warning("FitAll called before display is initialized")
 
     def View_Iso(self) -> None:
         """Set isometric view orientation.
 
         Sets the view to a standard isometric angle (±45°, ±30° elevation).
         """
-        self.display.View_Iso()
+        if self.display is not None:
+            self.display.View_Iso()
+        else:
+            log.warning("View_Iso called before display is initialized")
 
     def View_Front(self) -> None:
         """Set front view orientation.
 
         Sets the view to look directly at the front side of the model.
         """
-        self.display.View_Front()
+        if self.display is not None:
+            self.display.View_Front()
+        else:
+            log.warning("View_Front called before display is initialized")
 
     def View_Top(self) -> None:
         """Set top view orientation.
 
         Sets the view to look down from above the model.
         """
-        self.display.View_Top()
+        if self.display is not None:
+            self.display.View_Top()
+        else:
+            log.warning("View_Top called before display is initialized")
 
     def EraseAll(self) -> None:
         """Erase all user-displayed shapes except the ViewCube.
 
         Clears the scene while preserving the orientation cube for navigation.
         """
-        self.context.EraseAll(False)
-        self._cube.redisplay(self.context)
+        if self.context is not None:
+            self.context.EraseAll(False)
+        else:
+            log.warning("EraseAll called before context is initialized")
+        if self._cube is not None:
+            self._cube.redisplay(self.context)
+        else:
+            log.warning("EraseAll called before ViewCube is initialized")
 
     # ── Window ─────────────────────────────────────────────────────────────────
 
@@ -279,7 +317,15 @@ class OCCDisplay:
         try:
             from PySide6.QtCore import QTimer
 
-            self.display = self._viewer._display
+            if self.display is not None:
+                if self._viewer is not None:
+                    self.display = self._viewer._display
+                else:
+                    log.warning(
+                        "qtViewer3d instance not found during scene initialization"
+                    )
+            else:
+                log.warning("Viewer3d instance not found during scene initialization")
             self.context = self.display.Context
             self.view = self.display.View
 
@@ -320,8 +366,11 @@ class OCCDisplay:
         This ensures the ViewCube remains clearly visible at any zoom level.
         """
         if self.context is None:
-            return
+            return None
         try:
+            if self.view is None:
+                log.warning("View not initialized during zoom tick")
+                return None
             scale = self.view.Scale()
             if scale == self._last_scale:
                 return
