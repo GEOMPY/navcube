@@ -1,11 +1,9 @@
 ---
 layout: default
 title: Changelog
-nav_order: 8
 ---
 
 # Changelog
-{: .no_toc }
 
 All notable changes to pyside-navicube are documented here. This project follows [Semantic Versioning](https://semver.org/).
 

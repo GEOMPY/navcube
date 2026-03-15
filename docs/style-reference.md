@@ -1,20 +1,11 @@
 ---
 layout: default
 title: Style Reference
-nav_order: 3
 ---
 
 # Style Reference
-{: .no_toc }
 
 Complete documentation of every field in the `NaviCubeStyle` dataclass. This is the single point of control for all visual and behavioral aspects of the NaviCube widget.
-
-<details open markdown="block">
-  <summary>Table of contents</summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
 
 ---
 

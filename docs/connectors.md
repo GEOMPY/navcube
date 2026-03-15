@@ -1,20 +1,11 @@
 ---
 layout: default
 title: Connectors
-nav_order: 5
 ---
 
 # Connectors
-{: .no_toc }
 
 Connectors bridge a specific 3D renderer to the NaviCubeOverlay widget. They handle camera polling, signal wiring, interaction state, and teardown so you do not have to.
-
-<details open markdown="block">
-  <summary>Table of contents</summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
 
 ---
 

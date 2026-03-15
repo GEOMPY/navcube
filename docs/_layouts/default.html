@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/wiki.css' | relative_url }}">
+</head>
+<body>
+
+<!-- Top bar -->
+<header class="topbar">
+  <button class="menu-btn" onclick="document.body.classList.toggle('nav-open')" aria-label="Menu">&#9776;</button>
+  <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <span class="version">v1.0.0</span>
+  <nav class="toplinks">
+    <a href="https://github.com/nishikantmandal007/pyside-navicube">GitHub</a>
+    <a href="https://pypi.org/project/pyside-navicube/">PyPI</a>
+  </nav>
+</header>
+
+<div class="wrapper">
+
+  <!-- Sidebar wiki nav -->
+  <aside class="sidebar">
+    <nav>
+      <h4>Documentation</h4>
+      <ul>
+        <li {% if page.url == '/' or page.url == '/index.html' %}class="active"{% endif %}>
+          <a href="{{ '/' | relative_url }}">Home</a></li>
+        <li {% if page.url contains 'getting-started' %}class="active"{% endif %}>
+          <a href="{{ '/getting-started' | relative_url }}">Getting Started</a></li>
+        <li {% if page.url contains 'style-reference' %}class="active"{% endif %}>
+          <a href="{{ '/style-reference' | relative_url }}">Style Reference</a></li>
+        <li {% if page.url contains 'coordinate-systems' %}class="active"{% endif %}>
+          <a href="{{ '/coordinate-systems' | relative_url }}">Coordinate Systems</a></li>
+        <li {% if page.url contains 'connectors' %}class="active"{% endif %}>
+          <a href="{{ '/connectors' | relative_url }}">Connectors</a></li>
+        <li {% if page.url contains 'api-reference' %}class="active"{% endif %}>
+          <a href="{{ '/api-reference' | relative_url }}">API Reference</a></li>
+        <li {% if page.url contains 'examples' %}class="active"{% endif %}>
+          <a href="{{ '/examples' | relative_url }}">Examples</a></li>
+        <li {% if page.url contains 'changelog' %}class="active"{% endif %}>
+          <a href="{{ '/changelog' | relative_url }}">Changelog</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Page content -->
+  <main class="content">
+    <article>
+      {{ content }}
+    </article>
+    <footer>
+      <hr>
+      <p>pyside-navicube &middot; LGPL-2.1 &middot;
+        <a href="https://github.com/nishikantmandal007/pyside-navicube">Source</a>
+      </p>
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>

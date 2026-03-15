@@ -1,20 +1,11 @@
 ---
 layout: default
 title: Getting Started
-nav_order: 2
 ---
 
 # Getting Started
-{: .no_toc }
 
 This guide walks you through installing pyside-navicube, understanding its architecture, and writing your first integration.
-
-<details open markdown="block">
-  <summary>Table of contents</summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
 
 ---
 

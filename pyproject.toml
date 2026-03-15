@@ -26,7 +26,7 @@ occ = ["pythonocc-core"]
 vtk = ["vtk"]
 
 [project.urls]
-Repository = "https://github.com/osdag-org/pyside-navicube"
+Repository = "https://github.com/nishikantmandal007/pyside-navicube"
 Documentation = "https://osdag-org.github.io/pyside-navicube/"
 
 [tool.hatch.build.targets.wheel]

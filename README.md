@@ -3,7 +3,7 @@
 A beautiful, FreeCAD-style NaviCube orientation widget for **any PySide6 application**.
 Zero renderer dependency — works with OCC, VTK, custom OpenGL, or any 3D engine.
 
-**[Documentation](https://osdag-org.github.io/pyside-navicube/)** | **[PyPI](https://pypi.org/project/pyside-navicube/)** | **[GitHub](https://github.com/osdag-org/pyside-navicube)**
+**[Documentation](https://nishikantmandal007.github.io/pyside-navicube/)** | **[PyPI](https://pypi.org/project/pyside-navicube/)** | **[GitHub](https://github.com/nishikantmandal007/pyside-navicube)**
 
 ---
 
@@ -73,7 +73,7 @@ Change styles at runtime:
 cube.set_style(NaviCubeStyle(size=200, theme="light"))
 ```
 
-See the **[Style Reference](https://osdag-org.github.io/pyside-navicube/style-reference)** for all 50+ configurable fields.
+See the **[Style Reference](https://nishikantmandal007.github.io/pyside-navicube/style-reference)** for all 50+ configurable fields.
 
 ---
 

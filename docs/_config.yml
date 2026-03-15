@@ -1,17 +1,14 @@
 title: pyside-navicube
 description: FreeCAD-style NaviCube for PySide6 — zero renderer dependency
-theme: just-the-docs
-url: "https://osdag-org.github.io/pyside-navicube"
+url: "https://nishikantmandal007.github.io"
 baseurl: "/pyside-navicube"
-color_scheme: dark
-search_enabled: true
-nav_sort: order
-heading_anchors: true
 
-aux_links:
-  "GitHub":
-    - "https://github.com/osdag-org/pyside-navicube"
-  "PyPI":
-    - "https://pypi.org/project/pyside-navicube/"
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
 
-footer_content: "pyside-navicube is licensed under LGPL-2.1."
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor

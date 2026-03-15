@@ -1,0 +1,280 @@
+/* ── pyside-navicube wiki docs ─────────────────────────── */
+
+:root {
+  --sidebar-w: 240px;
+  --topbar-h: 48px;
+  --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --text: #24292f;
+  --text-dim: #57606a;
+  --link: #0969da;
+  --bg: #fff;
+  --bg-side: #f6f8fa;
+  --bg-code: #f6f8fa;
+  --border: #d0d7de;
+  --border-light: #e8ecf0;
+  --active-bg: #ddf4ff;
+  --active-border: #0969da;
+  --topbar-bg: #24292f;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar ────────────────────────────────────────────── */
+
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--topbar-h);
+  background: var(--topbar-bg);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 0.75rem;
+  z-index: 200;
+  font-size: 0.9rem;
+}
+
+.topbar .brand {
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.topbar .version {
+  opacity: 0.55;
+  font-size: 0.8rem;
+}
+
+.topbar .toplinks { margin-left: auto; display: flex; gap: 1rem; }
+.topbar .toplinks a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; }
+.topbar .toplinks a:hover { color: #fff; }
+
+.menu-btn {
+  display: none;
+  background: none; border: none;
+  color: #fff; font-size: 1.3rem; cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+
+/* ── Sidebar ────────────────────────────────────────────── */
+
+.wrapper {
+  display: flex;
+  margin-top: var(--topbar-h);
+  min-height: calc(100vh - var(--topbar-h));
+}
+
+.sidebar {
+  position: fixed;
+  top: var(--topbar-h);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--bg-side);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 1.25rem 0;
+}
+
+.sidebar h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  padding: 0 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li a {
+  display: block;
+  padding: 0.4rem 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+  transition: background 0.12s;
+}
+
+.sidebar li a:hover { background: var(--border-light); }
+
+.sidebar li.active a {
+  color: var(--active-border);
+  font-weight: 600;
+  border-left-color: var(--active-border);
+  background: var(--active-bg);
+}
+
+/* ── Content ────────────────────────────────────────────── */
+
+.content {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  padding: 2rem 2.5rem;
+  min-width: 0;
+  max-width: 920px;
+}
+
+.content article { max-width: 100%; }
+
+/* ── Typography ─────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text);
+  line-height: 1.3;
+  margin: 1.8rem 0 0.6rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.85rem;
+  margin-top: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+h2 {
+  font-size: 1.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+h3 { font-size: 1.15rem; }
+h4 { font-size: 1rem; }
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+strong { font-weight: 600; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border-light);
+  margin: 1.5rem 0;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+}
+
+/* ── Code ───────────────────────────────────────────────── */
+
+code {
+  font-family: var(--mono-font);
+  font-size: 0.85em;
+  background: var(--bg-code);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border-light);
+}
+
+pre {
+  background: #0d1117;
+  color: #e6edf3;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ── Tables ─────────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  background: var(--bg-side);
+  font-weight: 600;
+}
+
+/* ── Blockquotes ────────────────────────────────────────── */
+
+blockquote {
+  margin: 0 0 1rem;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--active-border);
+  background: var(--active-bg);
+  border-radius: 0 4px 4px 0;
+}
+
+blockquote p:last-child { margin-bottom: 0; }
+
+/* ── Lists ──────────────────────────────────────────────── */
+
+ul, ol { padding-left: 1.5rem; margin: 0 0 1rem; }
+li { margin-bottom: 0.25rem; }
+
+/* ── Footer ─────────────────────────────────────────────── */
+
+footer {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+footer a { color: var(--text-dim); }
+
+/* ── Responsive ─────────────────────────────────────────── */
+
+@media (max-width: 800px) {
+  .menu-btn { display: block; }
+
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    z-index: 150;
+  }
+
+  body.nav-open .sidebar {
+    transform: translateX(0);
+    box-shadow: 3px 0 12px rgba(0,0,0,0.12);
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 1.5rem 1.25rem;
+  }
+}

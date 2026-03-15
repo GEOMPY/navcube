@@ -1,20 +1,11 @@
 ---
 layout: default
 title: Coordinate Systems
-nav_order: 4
 ---
 
 # Coordinate Systems
-{: .no_toc }
 
 Understanding how pyside-navicube maps between its internal coordinate space and your application's world space.
-
-<details open markdown="block">
-  <summary>Table of contents</summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
 
 ---
 

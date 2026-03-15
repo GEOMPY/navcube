@@ -1,20 +1,11 @@
 ---
 layout: default
 title: API Reference
-nav_order: 6
 ---
 
 # API Reference
-{: .no_toc }
 
 Complete reference for all public classes, methods, and signals in pyside-navicube.
-
-<details open markdown="block">
-  <summary>Table of contents</summary>
-  {: .text-delta }
-1. TOC
-{:toc}
-</details>
 
 ---
 
