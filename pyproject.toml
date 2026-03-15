@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "navcube"
-version = "0.0.2"
+version = "1.0.0"
 description = "A 3D orientation cube widget for PySide6 — renderer-agnostic, drop-in ready"
 readme = "README.md"
 license = { text = "LGPL-2.1" }
