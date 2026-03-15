@@ -6,7 +6,7 @@ import math
 import numpy as np
 import pytest
 
-from navicube.widget import (
+from navcube.widget import (
     _norm, _rod, _vslerp, _smooth,
     _project_to_plane, _camera_basis,
     _qnorm, _quat_from_matrix, _matrix_from_quat, _qslerp,

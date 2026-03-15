@@ -1,22 +1,22 @@
 """
-occ_navicube_sync.py  —  OCC ↔ NaviCubeOverlay synchronisation helper
+occ_navicube_sync.py  —  OCC ↔ NavCubeOverlay synchronisation helper
 ═══════════════════════════════════════════════════════════════════════
-Bridges an OCC V3d_View with a NaviCubeOverlay widget.
+Bridges an OCC V3d_View with a NavCubeOverlay widget.
 
-NaviCubeOverlay is a zero-dependency PySide6 widget.  This file is the
+NavCubeOverlay is a zero-dependency PySide6 widget.  This file is the
 only place in the stack that imports OCC — keeping the widget itself
 publishable as a pure-Qt library.
 
 Usage
 ─────
-    from osdag_gui.ui.components.navicube_overlay import NaviCubeOverlay
-    from osdag_gui.ui.components.occ_navicube_sync import OCCNaviCubeSync
+    from osdag_gui.ui.components.navicube_overlay import NavCubeOverlay
+    from osdag_gui.ui.components.occ_navicube_sync import OCCNavCubeSync
 
-    navicube = NaviCubeOverlay(parent=tab_widget)
+    navicube = NavCubeOverlay(parent=tab_widget)
     navicube.show()
 
     # Call once your OCC view is ready (e.g. inside display_view_cube):
-    sync = OCCNaviCubeSync(occ_view, navicube)
+    sync = OCCNavCubeSync(occ_view, navicube)
 
     # In your viewer's mousePressEvent / mouseReleaseEvent:
     sync.set_interaction_active(True)   # press
@@ -39,9 +39,9 @@ import numpy as np
 from PySide6.QtCore import QTimer
 
 
-class OCCNaviCubeSync:
+class OCCNavCubeSync:
     """
-    Connects an OCC V3d_View to a NaviCubeOverlay.
+    Connects an OCC V3d_View to a NavCubeOverlay.
 
     Responsibilities
     ────────────────
@@ -54,7 +54,7 @@ class OCCNaviCubeSync:
     Parameters
     ──────────
     view      OCC V3d_View instance (must already be initialised)
-    navicube  NaviCubeOverlay instance
+    navicube  NavCubeOverlay instance
     """
 
     _TICK_MS           = 16   # poll interval (ms)

@@ -1,18 +1,18 @@
 """
-navicube.connectors.vtk  —  VTK / PyVista ↔ NaviCubeOverlay connector
+navicube.connectors.vtk  —  VTK / PyVista ↔ NavCubeOverlay connector
 ======================================================================
-Bridges a vtkRenderer (or PyVista Plotter) with a NaviCubeOverlay widget.
+Bridges a vtkRenderer (or PyVista Plotter) with a NavCubeOverlay widget.
 This is the only file in the library that imports VTK.
 
 Usage — plain VTK
 ─────────────────
-    from navicube import NaviCubeOverlay
-    from navcube.connectors.vtk import VTKNaviCubeSync
+    from navicube import NavCubeOverlay
+    from navcube.connectors.vtk import VTKNavCubeSync
 
-    cube = NaviCubeOverlay(parent=vtk_widget)
+    cube = NavCubeOverlay(parent=vtk_widget)
     cube.show()
 
-    sync = VTKNaviCubeSync(renderer, cube, render_window=vtk_widget.GetRenderWindow())
+    sync = VTKNavCubeSync(renderer, cube, render_window=vtk_widget.GetRenderWindow())
 
     # In your interactor style's OnLeftButtonDown / OnLeftButtonUp:
     sync.set_interaction_active(True)   # drag start
@@ -24,14 +24,14 @@ Usage — plain VTK
 Usage — PyVista
 ───────────────
     import pyvista as pv
-    from navicube import NaviCubeOverlay
-    from navcube.connectors.vtk import VTKNaviCubeSync
+    from navicube import NavCubeOverlay
+    from navcube.connectors.vtk import VTKNavCubeSync
 
     pl = pv.Plotter()
-    cube = NaviCubeOverlay(parent=None)  # or parent to plotter widget
+    cube = NavCubeOverlay(parent=None)  # or parent to plotter widget
     cube.show()
 
-    sync = VTKNaviCubeSync(
+    sync = VTKNavCubeSync(
         pl.renderer,
         cube,
         render_window=pl.render_window,
@@ -51,14 +51,14 @@ import math
 from PySide6.QtCore import QTimer
 
 
-class VTKNaviCubeSync:
+class VTKNavCubeSync:
     """
-    Connects a vtkRenderer's camera to a NaviCubeOverlay.
+    Connects a vtkRenderer's camera to a NavCubeOverlay.
 
     Parameters
     ──────────
     renderer       vtkRenderer instance (must already have a camera)
-    navicube       NaviCubeOverlay instance
+    navicube       NavCubeOverlay instance
     render_window  vtkRenderWindow to call Render() on after orientation
                    changes.  If None, renderer.GetRenderWindow() is used.
     """

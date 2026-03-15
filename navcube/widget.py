@@ -5,7 +5,7 @@ Zero renderer dependency · drop-in for any PySide6 application
 
 Quick-start
 ───────────
-  navicube = NaviCubeOverlay(parent=some_widget)
+  navicube = NavCubeOverlay(parent=some_widget)
   navicube.viewOrientationRequested.connect(your_camera_update)
   navicube.show()
 
@@ -18,7 +18,7 @@ Quick-start
 
 OCC users
 ─────────
-  Use OCCNaviCubeSync (occ_navicube_sync.py) — it owns the polling
+  Use OCCNavCubeSync (occ_navicube_sync.py) — it owns the polling
   timer, wires the signal, and calls push_camera() for you.
 
 Sign-convention contract (critical — do not change)
@@ -188,10 +188,10 @@ def _default_labels() -> Dict[str, str]:
     }
 
 @dataclass
-class NaviCubeStyle:
-    """Complete visual and behavioral configuration for NaviCubeOverlay.
+class NavCubeStyle:
+    """Complete visual and behavioral configuration for NavCubeOverlay.
 
-    Pass an instance to ``NaviCubeOverlay(style=...)`` or call
+    Pass an instance to ``NavCubeOverlay(style=...)`` or call
     ``set_style()`` at runtime.  Every field has a sensible default that
     matches the original hard-coded behavior.
     """
@@ -333,7 +333,7 @@ def _qcolor(c: Color) -> QColor:
 
 
 class _Pal:
-    def __init__(self, style: NaviCubeStyle, light: bool):
+    def __init__(self, style: NavCubeStyle, light: bool):
         if light:
             self.f_main = _qcolor(style.face_color)
             self.f_edge = _qcolor(style.edge_color)
@@ -366,7 +366,7 @@ class _Pal:
 #  Widget
 # ═══════════════════════════════════════════════════════════════════════
 
-class NaviCubeOverlay(QWidget):
+class NavCubeOverlay(QWidget):
     """
     FreeCAD-style NaviCube overlay.
 
@@ -403,7 +403,7 @@ class NaviCubeOverlay(QWidget):
             cls._WORLD_ROT = np.array(cls._WORLD_ROT, dtype=float)
 
     def __init__(self, parent=None, *, overlay: bool = True,
-                 style: NaviCubeStyle | None = None):
+                 style: NavCubeStyle | None = None):
         """
         Parameters
         ──────────
@@ -412,11 +412,11 @@ class NaviCubeOverlay(QWidget):
                  positioning the cube over a 3-D viewport.
                  False: plain opaque QWidget that can live in any layout
                  or dock without Tool-window side-effects.
-        style    Optional NaviCubeStyle for full visual/behavioral control.
+        style    Optional NavCubeStyle for full visual/behavioral control.
                  Defaults match original hard-coded behavior exactly.
         """
         super().__init__(parent)
-        self._style = style if style is not None else NaviCubeStyle()
+        self._style = style if style is not None else NavCubeStyle()
         self._apply_style_internals()
 
         self._overlay = overlay
@@ -480,7 +480,7 @@ class NaviCubeOverlay(QWidget):
         self._INACTIVE_OPACITY = s.inactive_opacity
         self._LIGHT = _norm(np.array(s.light_direction, dtype=float))
 
-    def set_style(self, style: NaviCubeStyle) -> None:
+    def set_style(self, style: NavCubeStyle) -> None:
         """Apply a new style at runtime. Forces a full rebuild and repaint."""
         self._style = style
         self._apply_style_internals()
