@@ -1,0 +1,4152 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+
+
+        <link rel="prev" href="index.html">
+
+
+
+
+
+
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+
+
+
+        <title>API Reference - GeomPy Documentation</title>
+
+
+
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+
+
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+
+
+
+
+
+
+
+
+
+
+
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Code"}</style>
+
+
+
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+
+      <link rel="stylesheet" href="stylesheets/extra.css">
+
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+
+
+
+
+
+  </head>
+
+
+
+
+
+
+
+
+
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green">
+
+
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+
+
+        <a href="#api-reference" class="md-skip">
+          Skip to content
+        </a>
+
+    </div>
+    <div data-md-component="announce">
+
+    </div>
+
+
+
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="GeomPy Documentation" class="md-header__button md-logo" aria-label="GeomPy Documentation" data-md-component="logo">
+
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GeomPy Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+
+              API Reference
+
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+        <form class="md-header__option" data-md-component="palette">
+
+
+
+
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+
+
+
+
+
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="light-green"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+
+
+</form>
+
+
+
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+
+
+
+
+
+        <label class="md-header__button md-icon" for="__search">
+
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      <div class="md-header__source">
+        <a href="https://github.com/GEOMPY/geompy-display" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    geompy-display
+  </div>
+</a>
+      </div>
+
+  </nav>
+
+</header>
+
+    <div class="md-container" data-md-component="container">
+
+
+
+
+
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+
+
+
+
+
+
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+
+
+
+
+
+  Home
+
+      </a>
+    </li>
+
+
+
+
+
+
+
+
+
+
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="api.html" class="md-tabs__link">
+
+
+
+
+
+  API Reference
+
+      </a>
+    </li>
+
+
+
+    </ul>
+  </div>
+</nav>
+
+
+
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+
+
+
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+
+
+
+
+
+
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="GeomPy Documentation" class="md-nav__button md-logo" aria-label="GeomPy Documentation" data-md-component="logo">
+
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GeomPy Documentation
+  </label>
+
+    <div class="md-nav__source">
+      <a href="https://github.com/GEOMPY/geompy-display" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    geompy-display
+  </div>
+</a>
+    </div>
+
+  <ul class="md-nav__list" data-md-scrollfix>
+
+
+
+
+
+
+
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+
+
+
+  <span class="md-ellipsis">
+
+
+    Home
+
+
+
+  </span>
+
+
+
+      </a>
+    </li>
+
+
+
+
+
+
+
+
+
+
+
+    <li class="md-nav__item md-nav__item--active">
+
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+
+
+
+
+
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+
+
+
+  <span class="md-ellipsis">
+
+
+    API Reference
+
+
+
+  </span>
+
+
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+
+      <a href="api.html" class="md-nav__link md-nav__link--active">
+
+
+
+  <span class="md-ellipsis">
+
+
+    API Reference
+
+
+
+  </span>
+
+
+
+      </a>
+
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+
+
+
+
+
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+
+        <li class="md-nav__item">
+  <a href="#package-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Package Overview
+
+    </span>
+  </a>
+
+</li>
+
+        <li class="md-nav__item">
+  <a href="#geompy_display" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        geompy_display
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="geompy_display">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Classes
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.ViewCubeConfig" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        ViewCubeConfig
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="ViewCubeConfig">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.ViewCubeConfig-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Functions
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.ViewCubeConfig.update" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        update
+
+    </span>
+  </a>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.ViewCube" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        ViewCube
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="ViewCube">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.ViewCube-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Functions
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.ViewCube.show" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        show
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.ViewCube.hide" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        hide
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.ViewCube.redisplay" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        redisplay
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.ViewCube.update_line_width" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        update_line_width
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.ViewCube.show_trihedron" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        show_trihedron
+
+    </span>
+  </a>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.OCCDisplay" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        OCCDisplay
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="OCCDisplay">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.OCCDisplay-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Functions
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.OCCDisplay.on_ready" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        on_ready
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.OCCDisplay.start" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        start
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.OCCDisplay.DisplayShape" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        DisplayShape
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.OCCDisplay.FitAll" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        FitAll
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.OCCDisplay.View_Iso" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        View_Iso
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.OCCDisplay.View_Front" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        View_Front
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.OCCDisplay.View_Top" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        View_Top
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.OCCDisplay.EraseAll" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        EraseAll
+
+    </span>
+  </a>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+        <li class="md-nav__item">
+  <a href="#module-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Module Reference
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="Module Reference">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_displaydisplay" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        geompy_display.display
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.display" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        display
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="display">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.display-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Classes
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.display.OCCDisplay" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        OCCDisplay
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="OCCDisplay">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.display.OCCDisplay-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Functions
+
+    </span>
+  </a>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_displayviewcube_config" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        geompy_display.viewcube_config
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.viewcube_config" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        viewcube_config
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="viewcube_config">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.viewcube_config-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Classes
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.viewcube_config.ViewCubeConfig" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        ViewCubeConfig
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="ViewCubeConfig">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.viewcube_config.ViewCubeConfig-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Functions
+
+    </span>
+  </a>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_displayviewcube" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        geompy_display.viewcube
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.viewcube" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        viewcube
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="viewcube">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.viewcube-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Classes
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.viewcube.ViewCube" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        ViewCube
+
+    </span>
+  </a>
+
+    <nav class="md-nav" aria-label="ViewCube">
+      <ul class="md-nav__list">
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.viewcube.ViewCube-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        Functions
+
+    </span>
+  </a>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_displayglyphs" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        geompy_display.glyphs
+
+    </span>
+  </a>
+
+</li>
+
+          <li class="md-nav__item">
+  <a href="#geompy_display.glyphs" class="md-nav__link">
+    <span class="md-ellipsis">
+
+        glyphs
+
+    </span>
+  </a>
+
+</li>
+
+      </ul>
+    </nav>
+
+</li>
+
+    </ul>
+
+</nav>
+
+    </li>
+
+
+
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            <div class="md-content" data-md-component="content">
+
+
+
+
+
+
+
+
+
+              <article class="md-content__inner md-typeset">
+
+
+
+
+
+
+
+
+<h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<p>This page contains the generated API documentation for <code>geompy_display</code> using mkdocstrings.</p>
+<h2 id="package-overview">Package Overview<a class="headerlink" href="#package-overview" title="Permanent link">&para;</a></h2>
+<p>Use these symbols for typical application integration:</p>
+<ul>
+<li><code>OCCDisplay</code>: Main viewer wrapper with ViewCube integration.</li>
+<li><code>ViewCubeConfig</code>: Configuration model for size, colors, placement, and rendering behavior.</li>
+<li><code>ViewCube</code>: Low-level ViewCube builder/manager.</li>
+</ul>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="geompy_display" class="doc doc-heading">
+            <code>geompy_display</code>
+
+
+<a href="#geompy_display" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>geompy-display: Orientation ViewCube for pythonocc-core viewer.</p>
+<p>A Pythonic wrapper around pythonocc-core's viewer with an always-on orientation
+ViewCube featuring zoom-adaptive stroke rendering.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.__version__">__version__</span></code></td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Package version.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic usage with default ViewCube configuration:</p>
+<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; from geompy_display import OCCDisplay, ViewCubeConfig
+&gt;&gt;&gt; display = OCCDisplay(title=&quot;My App&quot;)
+&gt;&gt;&gt; @display.on_ready
+... def populate(d):
+...     from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
+...     from OCC.Core.AIS import AIS_Shape
+...     d.context.Display(AIS_Shape(BRepPrimAPI_MakeBox(50,30,20).Shape()), True)
+&gt;&gt;&gt; display.start()
+</code></pre></div>
+<p>Customizing ViewCube position and size:</p>
+<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; cfg = ViewCubeConfig(cube_size=30, position=&quot;top-left&quot;)
+&gt;&gt;&gt; display = OCCDisplay(title=&quot;My App&quot;, viewcube=cfg)
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h3 id="geompy_display-classes">Classes<a href="#geompy_display-classes" class="headerlink" title="Permanent link">&para;</a></h3>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="geompy_display.ViewCubeConfig" class="doc doc-heading">
+            <code>ViewCubeConfig</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#geompy_display.ViewCubeConfig" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Configuration for ViewCube appearance, position, and rendering.</p>
+<p>This dataclass controls all visual and layout parameters of the orientation
+ViewCube. Includes validation in <strong>post_init</strong>() and supports dynamic updates
+via update(). Derived fields (char_height, char_gap) are computed from base
+parameters and updated automatically on any change.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.cube_size">cube_size</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Size of the cube in world units. Defaults to 25.0.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.chamfer_r">chamfer_r</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Radius of chamfered (beveled) corners in world units.
+Defaults to 2.0. Must be &lt; cube_size / 4.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.position">position</span></code></td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Corner position. One of POSITIONS. Defaults to "top-right".</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.padding">padding</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Gap between cube and viewport edge in world units. Defaults to 5.0.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.silver">silver</span></code></td>
+            <td>
+                  <code><span title="typing.Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>RGB color of cube faces, each channel in [0..1].
+Defaults to (0.75, 0.75, 0.78).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.label_color">label_color</span></code></td>
+            <td>
+                  <code><span title="typing.Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>RGB color of text labels, each channel in [0..1].
+Defaults to (0.0, 0.0, 0.0) for black.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.side_margin">side_margin</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Fraction of flat face reserved as empty space on each side.
+Defaults to 0.15 (15% margin each side).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.char_aspect">char_aspect</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Character width ratio relative to height. Defaults to 0.60.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.line_width">line_width</span></code></td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Glyph stroke width in pixels. Defaults to 1.
+Keep at 1; zoom-adaptive rendering handles thickness.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.char_height">char_height</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Computed character height (derived field, read-only).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCubeConfig.char_gap">char_gap</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Computed gap between characters (derived field, read-only).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If parameters fail validation (e.g., invalid colors,
+cube_size &lt;= 0, invalid position).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="geompy_display.ViewCubeConfig-functions">Functions<a href="#geompy_display.ViewCubeConfig-functions" class="headerlink" title="Permanent link">&para;</a></h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.ViewCubeConfig.update" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+<a href="#geompy_display.ViewCubeConfig.update" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Update configuration parameters and recompute derived values.</p>
+<p>Allows selective updates of updatable parameters without recreating
+the entire dataclass. All changes trigger revalidation and recalculation
+of derived fields. Returns self for method chaining.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>**kwargs</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | <span title="str">str</span> | <span title="int">int</span> | <span title="typing.Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Parameter names and values to update. Only parameters
+in _UPDATABLE are allowed.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="ViewCubeConfig
+
+
+
+      dataclass
+   (geompy_display.viewcube_config.ViewCubeConfig)" href="#geompy_display.viewcube_config.ViewCubeConfig">ViewCubeConfig</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>This ViewCubeConfig instance (enables chaining).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="AttributeError">AttributeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If any kwarg key is not in _UPDATABLE.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If updated parameters fail validation.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">cfg</span> <span class="o">=</span> <span class="n">ViewCubeConfig</span><span class="p">()</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">cfg</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cube_size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;bottom-left&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">cfg</span><span class="o">.</span><span class="n">cube_size</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">30.0</span>
+</span></code></pre></div>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="geompy_display.ViewCube" class="doc doc-heading">
+            <code>ViewCube</code>
+
+
+<a href="#geompy_display.ViewCube" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Builder and manager for 3D orientation cube with labeled faces.</p>
+<p>Constructs a chamfered cube with labeled faces (FRONT, BACK, LEFT, RIGHT,
+TOP, BOTTOM) positioned in a screen corner. Handles scaling to world-space,
+text rendering on each face, and zoom-adaptive line width for visibility
+at any zoom level.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCube.cfg">cfg</span></code></td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="ViewCubeConfig
+
+
+
+      dataclass
+   (geompy_display.viewcube_config.ViewCubeConfig)" href="#geompy_display.viewcube_config.ViewCubeConfig">ViewCubeConfig</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>ViewCubeConfig controlling appearance and position.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCube._ais_cube">_ais_cube</span></code></td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_Shape">AIS_Shape</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>AIS_Shape for the cube body (set by show()).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCube._label_ais">_label_ais</span></code></td>
+            <td>
+                  <code><span title="list">list</span>[<span title="OCC.Core.AIS.AIS_Shape">AIS_Shape</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of AIS_Shape objects for face labels (set by show()).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.ViewCube._last_width">_last_width</span></code></td>
+            <td>
+                  <code><span title="int">int</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Cache of last applied line width for optimization.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="geompy_display.ViewCube-functions">Functions<a href="#geompy_display.ViewCube-functions" class="headerlink" title="Permanent link">&para;</a></h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.ViewCube.show" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">show</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">viewer_widget</span><span class="p">)</span></code>
+
+<a href="#geompy_display.ViewCube.show" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Display ViewCube in the viewer at the configured corner position.</p>
+<p>Builds the cube geometry, positions it in world space, creates and
+positions face labels, and displays both in the OCC context. The cube
+is sized proportional to the viewport dimensions for responsive layout.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ctx</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_InteractiveContext">AIS_InteractiveContext</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC AIS_InteractiveContext where the cube is displayed.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>viewer_widget</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Display.qtDisplay.qtViewer3d">qtViewer3d</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>qtViewer3d widget for reading viewport dimensions
+and view information.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="side-effects" open>
+  <summary>Side Effects</summary>
+  <p>Updates self._ais_cube and self._label_ais with display objects.
+Increases context display count.</p>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.ViewCube.hide" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">hide</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></code>
+
+<a href="#geompy_display.ViewCube.hide" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Remove ViewCube from the viewer.</p>
+<p>Erases both the cube body and face labels from the OCC context
+without destroying the geometry objects.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ctx</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_InteractiveContext">AIS_InteractiveContext</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC AIS_InteractiveContext.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.ViewCube.redisplay" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">redisplay</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></code>
+
+<a href="#geompy_display.ViewCube.redisplay" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Re-display previously built ViewCube without rebuilding geometry.</p>
+<p>Shows the cube and labels that were previously built by show().
+This is more efficient than show() when the geometry hasn't changed.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ctx</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_InteractiveContext">AIS_InteractiveContext</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC AIS_InteractiveContext.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.ViewCube.update_line_width" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">update_line_width</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">view_scale</span><span class="p">)</span></code>
+
+<a href="#geompy_display.ViewCube.update_line_width" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Update face label stroke width based on zoom level.</p>
+<p>Implements zoom-adaptive rendering: as the user zooms in/out,
+recalculates the stroke width to maintain visual thickness.
+Caches the last width to avoid redundant updates.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ctx</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_InteractiveContext">AIS_InteractiveContext</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC AIS_InteractiveContext.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>view_scale</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Current view scale (pixels per world unit).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.ViewCube.show_trihedron" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">show_trihedron</span><span class="p">(</span><span class="n">view</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+<a href="#geompy_display.ViewCube.show_trihedron" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Display an optional trihedron reference axes in the view.</p>
+<p>Shows a red/green/blue axis indicator to help orient the viewer.
+This is a static helper method that gracefully degrades if the
+required OCC module is not available.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>view</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Core.V3d.V3d_View">V3d_View</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC V3d_View object.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h4 id="geompy_display.OCCDisplay" class="doc doc-heading">
+            <code>OCCDisplay</code>
+
+
+<a href="#geompy_display.OCCDisplay" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Wrapper around qtViewer3d with automatic orientation ViewCube integration.</p>
+<p>Embeds a chamfered cube with FRONT/BACK/LEFT/RIGHT/TOP/BOTTOM labels
+in a configurable screen corner. Provides both direct OCC handles and
+high-level convenience methods.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.OCCDisplay.title">title</span></code></td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Window title.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.OCCDisplay.width">width</span></code></td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initial window width in pixels.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.OCCDisplay.height">height</span></code></td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initial window height in pixels.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.OCCDisplay.bg_color">bg_color</span></code></td>
+            <td>
+                  <code><span title="tuple">tuple</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Background RGB color, each channel in [0..1].</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.OCCDisplay.display">display</span></code></td>
+            <td>
+                  <code><span title="OCC.Display.SimpleGui.Viewer3d">Viewer3d</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC Viewer3d object (set after initialization).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.OCCDisplay.context">context</span></code></td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_InteractiveContext">AIS_InteractiveContext</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC AIS_InteractiveContext (set after initialization).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.OCCDisplay.view">view</span></code></td>
+            <td>
+                  <code><span title="OCC.Core.V3d.V3d_View">V3d_View</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC V3d_View (set after initialization).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>title</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Window title. Defaults to "OCC Viewer".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;OCC Viewer&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>width</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initial window width in pixels. Defaults to 1100.</p>
+              </div>
+            </td>
+            <td>
+                  <code>1100</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>height</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initial window height in pixels. Defaults to 800.</p>
+              </div>
+            </td>
+            <td>
+                  <code>800</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>viewcube</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="ViewCubeConfig
+
+
+
+      dataclass
+   (geompy_display.viewcube_config.ViewCubeConfig)" href="#geompy_display.viewcube_config.ViewCubeConfig">ViewCubeConfig</a> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>ViewCubeConfig instance or None for defaults.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bg_color</code>
+            </td>
+            <td>
+                  <code><span title="tuple">tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Background RGB tuple [0..1] per channel. Defaults to (0.32, 0.32, 0.32).</p>
+              </div>
+            </td>
+            <td>
+                  <code>(0.32, 0.32, 0.32)</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic setup with default configuration:</p>
+<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; display = OCCDisplay(title=&quot;My Viewer&quot;)
+&gt;&gt;&gt; @display.on_ready
+... def setup(d):
+...     # Access d.context, d.display, d.view
+...     pass
+&gt;&gt;&gt; display.start()
+</code></pre></div>
+<p>Custom ViewCube configuration:</p>
+<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; cfg = ViewCubeConfig(cube_size=30, position=&quot;bottom-left&quot;, padding=10)
+&gt;&gt;&gt; display = OCCDisplay(title=&quot;Custom&quot;, viewcube=cfg, width=1200, height=900)
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h5 id="geompy_display.OCCDisplay-functions">Functions<a href="#geompy_display.OCCDisplay-functions" class="headerlink" title="Permanent link">&para;</a></h5>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.OCCDisplay.on_ready" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_ready</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span></code>
+
+<a href="#geompy_display.OCCDisplay.on_ready" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Register callback to run after viewer initialization.</p>
+<p>The callback receives the initialized OCCDisplay instance as its sole argument,
+allowing access to <code>display</code>, <code>context</code>, and <code>view</code> OCC handles.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>fn</code>
+            </td>
+            <td>
+                  <code><span title="typing.Callable">Callable</span>[[&#39;OCCDisplay&#39;], None]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Callback function accepting this OCCDisplay instance.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Callable">Callable</span>[[&#39;OCCDisplay&#39;], None]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The callback function (allows use as decorator).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">display</span> <span class="o">=</span> <span class="n">OCCDisplay</span><span class="p">()</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="nd">@display</span><span class="o">.</span><span class="n">on_ready</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="gp">... </span>    <span class="kn">from</span><span class="w"> </span><span class="nn">OCC.Core.AIS</span><span class="w"> </span><span class="kn">import</span> <span class="n">AIS_Shape</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gp">... </span>    <span class="n">d</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">Display</span><span class="p">(</span><span class="n">AIS_Shape</span><span class="p">(</span><span class="n">some_shape</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.OCCDisplay.start" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">start</span><span class="p">()</span></code>
+
+<a href="#geompy_display.OCCDisplay.start" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Open the window and enter the Qt event loop.</p>
+<p>Blocks execution until the window is closed by the user.
+Initializes scene and runs all registered on_ready callbacks
+before starting the Qt event loop.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The Qt application exit code. Return this to parent process if desired.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">display</span> <span class="o">=</span> <span class="n">OCCDisplay</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;My App&quot;</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">exit_code</span> <span class="o">=</span> <span class="n">display</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">exit_code</span><span class="p">)</span>
+</span></code></pre></div>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.OCCDisplay.DisplayShape" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">DisplayShape</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+<a href="#geompy_display.OCCDisplay.DisplayShape" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Display a TopoDS shape in the viewer.</p>
+<p>Wraps the shape in an AIS_Shape and displays it in the context.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>shape</code>
+            </td>
+            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC TopoDS shape to display.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>update</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, update the viewer immediately.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The AIS_Shape display object for further manipulation.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">OCC.Core.BRepPrimAPI</span><span class="w"> </span><span class="kn">import</span> <span class="n">BRepPrimAPI_MakeBox</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">OCC.Core.AIS</span><span class="w"> </span><span class="kn">import</span> <span class="n">AIS_Shape</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="nd">@display</span><span class="o">.</span><span class="n">on_ready</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gp">... </span>    <span class="n">shape</span> <span class="o">=</span> <span class="n">BRepPrimAPI_MakeBox</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">Shape</span><span class="p">()</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="gp">... </span>    <span class="n">ais</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">DisplayShape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+</span></code></pre></div>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.OCCDisplay.FitAll" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">FitAll</span><span class="p">()</span></code>
+
+<a href="#geompy_display.OCCDisplay.FitAll" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Fit all geometry in the view.</p>
+<p>Adjusts the camera and zoom level to show all displayed shapes.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.OCCDisplay.View_Iso" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">View_Iso</span><span class="p">()</span></code>
+
+<a href="#geompy_display.OCCDisplay.View_Iso" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Set isometric view orientation.</p>
+<p>Sets the view to a standard isometric angle (±45°, ±30° elevation).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.OCCDisplay.View_Front" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">View_Front</span><span class="p">()</span></code>
+
+<a href="#geompy_display.OCCDisplay.View_Front" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Set front view orientation.</p>
+<p>Sets the view to look directly at the front side of the model.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.OCCDisplay.View_Top" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">View_Top</span><span class="p">()</span></code>
+
+<a href="#geompy_display.OCCDisplay.View_Top" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Set top view orientation.</p>
+<p>Sets the view to look down from above the model.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h6 id="geompy_display.OCCDisplay.EraseAll" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">EraseAll</span><span class="p">()</span></code>
+
+<a href="#geompy_display.OCCDisplay.EraseAll" class="headerlink" title="Permanent link">&para;</a></h6>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Erase all user-displayed shapes except the ViewCube.</p>
+<p>Clears the scene while preserving the orientation cube for navigation.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h2 id="module-reference">Module Reference<a class="headerlink" href="#module-reference" title="Permanent link">&para;</a></h2>
+<h3 id="geompy_displaydisplay"><code>geompy_display.display</code><a class="headerlink" href="#geompy_displaydisplay" title="Permanent link">&para;</a></h3>
+<p>High-level viewer API and convenience methods.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="geompy_display.display" class="doc doc-heading">
+            <code>geompy_display.display</code>
+
+
+<a href="#geompy_display.display" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents first">
+
+        <p>OCCDisplay: Drop-in viewer wrapper with automatic orientation ViewCube.</p>
+<p>This module provides <code>OCCDisplay</code>, a high-level wrapper around pythonocc-core's
+Viewer3d that automatically embeds an orientation ViewCube in a configurable
+corner with zoom-adaptive stroke rendering.</p>
+
+
+<details class="typical-usage" open>
+  <summary>Typical Usage</summary>
+  <blockquote>
+<blockquote>
+<blockquote>
+<p>from geompy_display import OCCDisplay, ViewCubeConfig
+cfg = ViewCubeConfig(cube_size=25, position="top-right")
+display = OCCDisplay(title="My App", viewcube=cfg)
+@display.on_ready
+... def populate(d):
+...     from OCC.Core.BRepPrimAPI import BRepPrimAPI_MakeBox
+...     from OCC.Core.AIS import AIS_Shape
+...     d.context.Display(AIS_Shape(BRepPrimAPI_MakeBox(50,30,20).Shape()), True)
+display.start()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</details>
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h4 id="geompy_display.display-classes">Classes<a href="#geompy_display.display-classes" class="headerlink" title="Permanent link">&para;</a></h4>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h5 id="geompy_display.display.OCCDisplay" class="doc doc-heading">
+            <code>OCCDisplay</code>
+
+
+<a href="#geompy_display.display.OCCDisplay" class="headerlink" title="Permanent link">&para;</a></h5>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Wrapper around qtViewer3d with automatic orientation ViewCube integration.</p>
+<p>Embeds a chamfered cube with FRONT/BACK/LEFT/RIGHT/TOP/BOTTOM labels
+in a configurable screen corner. Provides both direct OCC handles and
+high-level convenience methods.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.display.OCCDisplay.title">title</span></code></td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Window title.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.display.OCCDisplay.width">width</span></code></td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initial window width in pixels.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.display.OCCDisplay.height">height</span></code></td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initial window height in pixels.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.display.OCCDisplay.bg_color">bg_color</span></code></td>
+            <td>
+                  <code><span title="tuple">tuple</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Background RGB color, each channel in [0..1].</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.display.OCCDisplay.display">display</span></code></td>
+            <td>
+                  <code><span title="OCC.Display.SimpleGui.Viewer3d">Viewer3d</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC Viewer3d object (set after initialization).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.display.OCCDisplay.context">context</span></code></td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_InteractiveContext">AIS_InteractiveContext</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC AIS_InteractiveContext (set after initialization).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.display.OCCDisplay.view">view</span></code></td>
+            <td>
+                  <code><span title="OCC.Core.V3d.V3d_View">V3d_View</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC V3d_View (set after initialization).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>title</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Window title. Defaults to "OCC Viewer".</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;OCC Viewer&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>width</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initial window width in pixels. Defaults to 1100.</p>
+              </div>
+            </td>
+            <td>
+                  <code>1100</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>height</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Initial window height in pixels. Defaults to 800.</p>
+              </div>
+            </td>
+            <td>
+                  <code>800</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>viewcube</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="ViewCubeConfig
+
+
+
+      dataclass
+   (geompy_display.viewcube_config.ViewCubeConfig)" href="#geompy_display.viewcube_config.ViewCubeConfig">ViewCubeConfig</a> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>ViewCubeConfig instance or None for defaults.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>bg_color</code>
+            </td>
+            <td>
+                  <code><span title="tuple">tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Background RGB tuple [0..1] per channel. Defaults to (0.32, 0.32, 0.32).</p>
+              </div>
+            </td>
+            <td>
+                  <code>(0.32, 0.32, 0.32)</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Basic setup with default configuration:</p>
+<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; display = OCCDisplay(title=&quot;My Viewer&quot;)
+&gt;&gt;&gt; @display.on_ready
+... def setup(d):
+...     # Access d.context, d.display, d.view
+...     pass
+&gt;&gt;&gt; display.start()
+</code></pre></div>
+<p>Custom ViewCube configuration:</p>
+<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; cfg = ViewCubeConfig(cube_size=30, position=&quot;bottom-left&quot;, padding=10)
+&gt;&gt;&gt; display = OCCDisplay(title=&quot;Custom&quot;, viewcube=cfg, width=1200, height=900)
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h6 id="geompy_display.display.OCCDisplay-functions">Functions<a href="#geompy_display.display.OCCDisplay-functions" class="headerlink" title="Permanent link">&para;</a></h6>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.display.OCCDisplay.on_ready" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">on_ready</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span></code>
+
+<a href="#geompy_display.display.OCCDisplay.on_ready" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Register callback to run after viewer initialization.</p>
+<p>The callback receives the initialized OCCDisplay instance as its sole argument,
+allowing access to <code>display</code>, <code>context</code>, and <code>view</code> OCC handles.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>fn</code>
+            </td>
+            <td>
+                  <code><span title="typing.Callable">Callable</span>[[&#39;OCCDisplay&#39;], None]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Callback function accepting this OCCDisplay instance.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Callable">Callable</span>[[&#39;OCCDisplay&#39;], None]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The callback function (allows use as decorator).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">display</span> <span class="o">=</span> <span class="n">OCCDisplay</span><span class="p">()</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="nd">@display</span><span class="o">.</span><span class="n">on_ready</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="gp">... </span>    <span class="kn">from</span><span class="w"> </span><span class="nn">OCC.Core.AIS</span><span class="w"> </span><span class="kn">import</span> <span class="n">AIS_Shape</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gp">... </span>    <span class="n">d</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">Display</span><span class="p">(</span><span class="n">AIS_Shape</span><span class="p">(</span><span class="n">some_shape</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.display.OCCDisplay.start" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">start</span><span class="p">()</span></code>
+
+<a href="#geompy_display.display.OCCDisplay.start" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Open the window and enter the Qt event loop.</p>
+<p>Blocks execution until the window is closed by the user.
+Initializes scene and runs all registered on_ready callbacks
+before starting the Qt event loop.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The Qt application exit code. Return this to parent process if desired.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">display</span> <span class="o">=</span> <span class="n">OCCDisplay</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;My App&quot;</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">exit_code</span> <span class="o">=</span> <span class="n">display</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">exit_code</span><span class="p">)</span>
+</span></code></pre></div>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.display.OCCDisplay.DisplayShape" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">DisplayShape</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+<a href="#geompy_display.display.OCCDisplay.DisplayShape" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Display a TopoDS shape in the viewer.</p>
+<p>Wraps the shape in an AIS_Shape and displays it in the context.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>shape</code>
+            </td>
+            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC TopoDS shape to display.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>update</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If True, update the viewer immediately.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="typing.Any">Any</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The AIS_Shape display object for further manipulation.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">OCC.Core.BRepPrimAPI</span><span class="w"> </span><span class="kn">import</span> <span class="n">BRepPrimAPI_MakeBox</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">OCC.Core.AIS</span><span class="w"> </span><span class="kn">import</span> <span class="n">AIS_Shape</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="nd">@display</span><span class="o">.</span><span class="n">on_ready</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="gp">... </span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gp">... </span>    <span class="n">shape</span> <span class="o">=</span> <span class="n">BRepPrimAPI_MakeBox</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">Shape</span><span class="p">()</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="gp">... </span>    <span class="n">ais</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">DisplayShape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+</span></code></pre></div>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.display.OCCDisplay.FitAll" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">FitAll</span><span class="p">()</span></code>
+
+<a href="#geompy_display.display.OCCDisplay.FitAll" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Fit all geometry in the view.</p>
+<p>Adjusts the camera and zoom level to show all displayed shapes.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.display.OCCDisplay.View_Iso" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">View_Iso</span><span class="p">()</span></code>
+
+<a href="#geompy_display.display.OCCDisplay.View_Iso" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Set isometric view orientation.</p>
+<p>Sets the view to a standard isometric angle (±45°, ±30° elevation).</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.display.OCCDisplay.View_Front" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">View_Front</span><span class="p">()</span></code>
+
+<a href="#geompy_display.display.OCCDisplay.View_Front" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Set front view orientation.</p>
+<p>Sets the view to look directly at the front side of the model.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.display.OCCDisplay.View_Top" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">View_Top</span><span class="p">()</span></code>
+
+<a href="#geompy_display.display.OCCDisplay.View_Top" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Set top view orientation.</p>
+<p>Sets the view to look down from above the model.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.display.OCCDisplay.EraseAll" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">EraseAll</span><span class="p">()</span></code>
+
+<a href="#geompy_display.display.OCCDisplay.EraseAll" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Erase all user-displayed shapes except the ViewCube.</p>
+<p>Clears the scene while preserving the orientation cube for navigation.</p>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h3 id="geompy_displayviewcube_config"><code>geompy_display.viewcube_config</code><a class="headerlink" href="#geompy_displayviewcube_config" title="Permanent link">&para;</a></h3>
+<p>Configuration dataclasses and parameters for the orientation cube.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="geompy_display.viewcube_config" class="doc doc-heading">
+            <code>geompy_display.viewcube_config</code>
+
+
+<a href="#geompy_display.viewcube_config" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents first">
+
+        <p>ViewCube configuration dataclass for appearance and positioning.</p>
+<p>Provides <code>ViewCubeConfig</code>, a dataclass that controls all aspects of the
+3D orientation cube rendering—size, position, colors, text layout, and
+rendering parameters. Settings support dynamic updates via the <code>update()</code> method.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.POSITIONS">POSITIONS</span></code></td>
+            <td>
+                  <code><span title="tuple">tuple</span>[<span title="str">str</span>, ...]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Valid corner position values.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <p>Create a custom ViewCube configuration:</p>
+<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; from geompy_display import OCCDisplay, ViewCubeConfig
+&gt;&gt;&gt; cfg = ViewCubeConfig(
+...     cube_size=30,
+...     position=&quot;top-left&quot;,   # or &quot;top-right&quot;, &quot;bottom-left&quot;, &quot;bottom-right&quot;
+...     silver=(0.7, 0.7, 0.75),
+...     padding=10,
+... )
+&gt;&gt;&gt; display = OCCDisplay(viewcube=cfg)
+</code></pre></div>
+<p>Update configuration after creation:</p>
+<div class="language-text highlight"><pre><span></span><code>&gt;&gt;&gt; cfg.update(cube_size=40, position=&quot;bottom-right&quot;)
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h4 id="geompy_display.viewcube_config-classes">Classes<a href="#geompy_display.viewcube_config-classes" class="headerlink" title="Permanent link">&para;</a></h4>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h5 id="geompy_display.viewcube_config.ViewCubeConfig" class="doc doc-heading">
+            <code>ViewCubeConfig</code>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+  </span>
+
+<a href="#geompy_display.viewcube_config.ViewCubeConfig" class="headerlink" title="Permanent link">&para;</a></h5>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Configuration for ViewCube appearance, position, and rendering.</p>
+<p>This dataclass controls all visual and layout parameters of the orientation
+ViewCube. Includes validation in <strong>post_init</strong>() and supports dynamic updates
+via update(). Derived fields (char_height, char_gap) are computed from base
+parameters and updated automatically on any change.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.cube_size">cube_size</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Size of the cube in world units. Defaults to 25.0.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.chamfer_r">chamfer_r</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Radius of chamfered (beveled) corners in world units.
+Defaults to 2.0. Must be &lt; cube_size / 4.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.position">position</span></code></td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Corner position. One of POSITIONS. Defaults to "top-right".</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.padding">padding</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Gap between cube and viewport edge in world units. Defaults to 5.0.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.silver">silver</span></code></td>
+            <td>
+                  <code><span title="typing.Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>RGB color of cube faces, each channel in [0..1].
+Defaults to (0.75, 0.75, 0.78).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.label_color">label_color</span></code></td>
+            <td>
+                  <code><span title="typing.Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>RGB color of text labels, each channel in [0..1].
+Defaults to (0.0, 0.0, 0.0) for black.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.side_margin">side_margin</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Fraction of flat face reserved as empty space on each side.
+Defaults to 0.15 (15% margin each side).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.char_aspect">char_aspect</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Character width ratio relative to height. Defaults to 0.60.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.line_width">line_width</span></code></td>
+            <td>
+                  <code><span title="int">int</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Glyph stroke width in pixels. Defaults to 1.
+Keep at 1; zoom-adaptive rendering handles thickness.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.char_height">char_height</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Computed character height (derived field, read-only).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube_config.ViewCubeConfig.char_gap">char_gap</span></code></td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Computed gap between characters (derived field, read-only).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If parameters fail validation (e.g., invalid colors,
+cube_size &lt;= 0, invalid position).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h6 id="geompy_display.viewcube_config.ViewCubeConfig-functions">Functions<a href="#geompy_display.viewcube_config.ViewCubeConfig-functions" class="headerlink" title="Permanent link">&para;</a></h6>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.viewcube_config.ViewCubeConfig.update" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+<a href="#geompy_display.viewcube_config.ViewCubeConfig.update" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Update configuration parameters and recompute derived values.</p>
+<p>Allows selective updates of updatable parameters without recreating
+the entire dataclass. All changes trigger revalidation and recalculation
+of derived fields. Returns self for method chaining.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>**kwargs</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span> | <span title="str">str</span> | <span title="int">int</span> | <span title="typing.Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Parameter names and values to update. Only parameters
+in _UPDATABLE are allowed.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="ViewCubeConfig
+
+
+
+      dataclass
+   (geompy_display.viewcube_config.ViewCubeConfig)" href="#geompy_display.viewcube_config.ViewCubeConfig">ViewCubeConfig</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>This ViewCubeConfig instance (enables chaining).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="AttributeError">AttributeError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If any kwarg key is not in _UPDATABLE.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="ValueError">ValueError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If updated parameters fail validation.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">cfg</span> <span class="o">=</span> <span class="n">ViewCubeConfig</span><span class="p">()</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">cfg</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cube_size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;bottom-left&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">cfg</span><span class="o">.</span><span class="n">cube_size</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">30.0</span>
+</span></code></pre></div>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h3 id="geompy_displayviewcube"><code>geompy_display.viewcube</code><a class="headerlink" href="#geompy_displayviewcube" title="Permanent link">&para;</a></h3>
+<p>ViewCube geometry creation, placement, and rendering internals.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="geompy_display.viewcube" class="doc doc-heading">
+            <code>geompy_display.viewcube</code>
+
+
+<a href="#geompy_display.viewcube" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents first">
+
+        <p>ViewCube builder and manager for OCC viewer orientation cube.</p>
+<p>Manages the construction, positioning, and rendering of a 3D orientation cube
+with labeled faces (FRONT, BACK, LEFT, RIGHT, TOP, BOTTOM). Provides automatic
+zoom-adaptive line width rendering and screen-corner positioning.</p>
+
+
+<details class="core-functions" open>
+  <summary>Core Functions</summary>
+  <p>_translate: Translate a shape in 3D space.
+_build_text_edges: Build text geometry from stroke glyphs.
+_face_defs: Define label positions and orientations.
+_position_offset: Compute corner offset from position string.
+_corner_offset: Compute world-space cube position and size.</p>
+</details>
+
+<details class="main-class" open>
+  <summary>Main Class</summary>
+  <p>ViewCube: Builds and manages the cube visualization.</p>
+</details>
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<h4 id="geompy_display.viewcube-classes">Classes<a href="#geompy_display.viewcube-classes" class="headerlink" title="Permanent link">&para;</a></h4>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h5 id="geompy_display.viewcube.ViewCube" class="doc doc-heading">
+            <code>ViewCube</code>
+
+
+<a href="#geompy_display.viewcube.ViewCube" class="headerlink" title="Permanent link">&para;</a></h5>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>Builder and manager for 3D orientation cube with labeled faces.</p>
+<p>Constructs a chamfered cube with labeled faces (FRONT, BACK, LEFT, RIGHT,
+TOP, BOTTOM) positioned in a screen corner. Handles scaling to world-space,
+text rendering on each face, and zoom-adaptive line width for visibility
+at any zoom level.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube.ViewCube.cfg">cfg</span></code></td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="ViewCubeConfig
+
+
+
+      dataclass
+   (geompy_display.viewcube_config.ViewCubeConfig)" href="#geompy_display.viewcube_config.ViewCubeConfig">ViewCubeConfig</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>ViewCubeConfig controlling appearance and position.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube.ViewCube._ais_cube">_ais_cube</span></code></td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_Shape">AIS_Shape</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>AIS_Shape for the cube body (set by show()).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube.ViewCube._label_ais">_label_ais</span></code></td>
+            <td>
+                  <code><span title="list">list</span>[<span title="OCC.Core.AIS.AIS_Shape">AIS_Shape</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of AIS_Shape objects for face labels (set by show()).</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.viewcube.ViewCube._last_width">_last_width</span></code></td>
+            <td>
+                  <code><span title="int">int</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Cache of last applied line width for optimization.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+<h6 id="geompy_display.viewcube.ViewCube-functions">Functions<a href="#geompy_display.viewcube.ViewCube-functions" class="headerlink" title="Permanent link">&para;</a></h6>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.viewcube.ViewCube.show" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">show</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">viewer_widget</span><span class="p">)</span></code>
+
+<a href="#geompy_display.viewcube.ViewCube.show" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Display ViewCube in the viewer at the configured corner position.</p>
+<p>Builds the cube geometry, positions it in world space, creates and
+positions face labels, and displays both in the OCC context. The cube
+is sized proportional to the viewport dimensions for responsive layout.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ctx</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_InteractiveContext">AIS_InteractiveContext</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC AIS_InteractiveContext where the cube is displayed.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>viewer_widget</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Display.qtDisplay.qtViewer3d">qtViewer3d</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>qtViewer3d widget for reading viewport dimensions
+and view information.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="side-effects" open>
+  <summary>Side Effects</summary>
+  <p>Updates self._ais_cube and self._label_ais with display objects.
+Increases context display count.</p>
+</details>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.viewcube.ViewCube.hide" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">hide</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></code>
+
+<a href="#geompy_display.viewcube.ViewCube.hide" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Remove ViewCube from the viewer.</p>
+<p>Erases both the cube body and face labels from the OCC context
+without destroying the geometry objects.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ctx</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_InteractiveContext">AIS_InteractiveContext</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC AIS_InteractiveContext.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.viewcube.ViewCube.redisplay" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">redisplay</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span></code>
+
+<a href="#geompy_display.viewcube.ViewCube.redisplay" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Re-display previously built ViewCube without rebuilding geometry.</p>
+<p>Shows the cube and labels that were previously built by show().
+This is more efficient than show() when the geometry hasn't changed.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ctx</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_InteractiveContext">AIS_InteractiveContext</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC AIS_InteractiveContext.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.viewcube.ViewCube.update_line_width" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">update_line_width</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">view_scale</span><span class="p">)</span></code>
+
+<a href="#geompy_display.viewcube.ViewCube.update_line_width" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Update face label stroke width based on zoom level.</p>
+<p>Implements zoom-adaptive rendering: as the user zooms in/out,
+recalculates the stroke width to maintain visual thickness.
+Caches the last width to avoid redundant updates.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>ctx</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Core.AIS.AIS_InteractiveContext">AIS_InteractiveContext</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC AIS_InteractiveContext.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>view_scale</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Current view scale (pixels per world unit).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h7 id="geompy_display.viewcube.ViewCube.show_trihedron" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">show_trihedron</span><span class="p">(</span><span class="n">view</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+<a href="#geompy_display.viewcube.ViewCube.show_trihedron" class="headerlink" title="Permanent link">&para;</a></h7>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Display an optional trihedron reference axes in the view.</p>
+<p>Shows a red/green/blue axis indicator to help orient the viewer.
+This is a static helper method that gracefully degrades if the
+required OCC module is not available.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>view</code>
+            </td>
+            <td>
+                  <code><span title="OCC.Core.V3d.V3d_View">V3d_View</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>OCC V3d_View object.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div><h3 id="geompy_displayglyphs"><code>geompy_display.glyphs</code><a class="headerlink" href="#geompy_displayglyphs" title="Permanent link">&para;</a></h3>
+<p>Stroke glyph definitions used for face labels.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h3 id="geompy_display.glyphs" class="doc doc-heading">
+            <code>geompy_display.glyphs</code>
+
+
+<a href="#geompy_display.glyphs" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents first">
+
+        <p>Hershey-style stroke font glyphs for 3D text rendering.</p>
+<p>Provides a dictionary of character glyphs, each defined as a list of polyline
+strokes in a normalized 0..1 × 0..1 bounding box. Designed for rendering text
+in 3D space by scaling to world coordinates.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="geompy_display.glyphs.GLYPHS">GLYPHS</span></code></td>
+            <td>
+                  <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="list">list</span>[<span title="list">list</span>[<span title="tuple">tuple</span>[<span title="float">float</span>, <span title="float">float</span>]]]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Character glyph definitions.
+Each key is an uppercase letter or space. Each value is a list of strokes,
+where each stroke is a list of (x, y) normalized coordinates.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="language-pycon highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">geompy_display.glyphs</span><span class="w"> </span><span class="kn">import</span> <span class="n">GLYPHS</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Glyph &#39;A&#39; has two strokes</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">GLYPHS</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">])</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">2</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="c1"># First stroke is the outline</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">GLYPHS</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="go">[(0, 0), (0.5, 1), (1, 0)]</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </article>
+            </div>
+
+
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+
+      </main>
+
+        <footer class="md-footer">
+
+
+
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+
+
+          <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+
+
+      </nav>
+
+
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+
+
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+
+</div>
+
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+
+
+
+
+
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["header.autohide", "announce.dismiss", "navigation.tabs", "navigation.path", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.integrate", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+
+
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+
+
+  </body>
+</html>
