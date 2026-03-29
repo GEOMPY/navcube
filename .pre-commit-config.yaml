@@ -23,3 +23,11 @@ repos:
     rev: v1.10.0
     hooks:
       - id: mypy
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: python scripts/run_pytest_if_present.py
+        language: system
+        pass_filenames: false
