@@ -1,0 +1,67 @@
+name: Build and Publish to Conda
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggers on tags like v1.0.0, v1.0.1
+  release:
+    types: [published]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        auto-update-conda: true
+        conda-build-version: latest
+        channels: conda-forge,geompy,defaults
+        channel-priority: true
+    
+    - name: Install conda-build and anaconda-client
+      shell: bash -l {0}
+      run: |
+        conda install conda-build anaconda-client -y
+    
+    - name: Extract version from tag
+      shell: bash
+      run: |
+        VERSION=${GITHUB_REF#refs/tags/v}
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+        echo "Building NavCube version: $VERSION"
+    
+    - name: Update meta.yaml with version from tag
+      shell: bash
+      run: |
+        # Update the version in meta.yaml using sed
+        sed -i "s/{%.*set version = .*%}/{%\ set version = \"${{ env.VERSION }}\" %}/g" conda-recipe/meta.yaml
+        echo "Updated meta.yaml:"
+        cat conda-recipe/meta.yaml | head -5
+    
+    - name: Build conda package
+      shell: bash -l {0}
+      run: |
+        conda build conda-recipe --output-folder dist/
+    
+    - name: Publish to Anaconda Cloud
+      shell: bash -l {0}
+      if: success()
+      env:
+        ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+      run: |
+        # Upload both .tar.bz2 and .conda files (whichever exist)
+        anaconda -t $ANACONDA_TOKEN upload dist/noarch/*.tar.bz2 --force 2>/dev/null || true
+        anaconda -t $ANACONDA_TOKEN upload dist/noarch/*.conda --force 2>/dev/null || true
+    
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: conda-packages-${{ env.VERSION }}
+        path: dist/noarch/
+        retention-days: 30
