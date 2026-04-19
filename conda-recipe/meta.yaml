@@ -1,5 +1,5 @@
 {% set name = "navcube" %}
-{% set version = "1.0.1" %}
+{% set version = "1.1.0" %}
 {% set git_url = "https://github.com/geompy/navcube.git" %}
 {% set branch = "main" %}
 {% set git_tag = "v" + version %}
