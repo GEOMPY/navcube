@@ -8,7 +8,7 @@ version = "1.0.1"
 description = "A 3D orientation cube widget for PySide6 — renderer-agnostic, drop-in ready"
 readme = "README.md"
 license = { text = "MIT" }
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.13"
 keywords = ["pyside6", "qt", "navcube", "navicube", "viewcube", "3d", "cad", "orientation"]
 classifiers = [
     "Programming Language :: Python :: 3",
