@@ -32,6 +32,10 @@ pip install navcube[vtk]       # + VTK/PyVista connector
 
 ---
 
+## Demo
+
+![GUI DEMO](https://github.com/geompy/navcube/blob/main/demo/demo_gif.gif)
+
 ## Quick start
 
 ```python
