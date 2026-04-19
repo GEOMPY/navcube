@@ -51,6 +51,7 @@ test:
     - navcube
   commands:
     - pip check
+    - export QT_QPA_PLATFORM=offscreen
     - pytest tests -v --tb=short --disable-warnings
 
 about:
