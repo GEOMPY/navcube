@@ -25,14 +25,33 @@ jobs:
     # Publish for every stable tag (no pre-release suffix like -alpha, -beta, -rc)
     if: ${{ !contains(github.ref_name, '-') }}
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+
+      - name: Extract version from tag
+        shell: bash
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Publishing version: $VERSION"
+      
+      - name: Update pyproject.toml with version from tag
+        shell: bash
+        run: |
+          # Update version in pyproject.toml
+          sed -i "s/version = \".*\"/version = \"${{ env.VERSION }}\"/g" pyproject.toml
+          echo "Updated pyproject.toml:"
+          grep "version = " pyproject.toml | head -1
+      
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Build
         run: pip install build && python -m build
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
+        # with:
+        #   password: ${{ secrets.PYPI_API_TOKEN }}
