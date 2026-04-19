@@ -1,14 +1,20 @@
 {% set name = "navcube" %}
-{% set version = "1.0.1" %}
+{% set version = "1.1.0" %}
+{% set git_url = "https://github.com/geompy/navcube.git" %}
+{% set branch = "main" %}
+{% set git_tag = "v" + version %}
 
 package:
-  name: {{ name }}
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  # url: https://github.com/geompy/navcube/archive/refs/tags/v{{ version }}.tar.gz
-  # sha256: <ADD_SHA256_HERE>
 
+  # from published (conda-forge):
+  # git_url: {{ git_url }}
+  # git_tag: {{ git_tag }}
+
+  # from local build
   path: ..
 
 build:
@@ -17,14 +23,23 @@ build:
 
 requirements:
   host:
-    - python >=3.10
+    - python >=3.10,<3.13
     - pip
     - hatchling
 
   run:
-    - python >=3.10
+    - python >=3.10,<3.13
     - pyside6
     - numpy
+
+# Optional dependencies
+extras:
+  - name: occ
+    requirements:
+      - pythonocc-core
+  - name: vtk
+    requirements:
+      - vtk
 
 test:
   requires:
