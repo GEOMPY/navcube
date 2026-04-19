@@ -1,0 +1,194 @@
+name: Build and Publish to Conda
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggers on tags like v1.0.0, v1.0.1
+  release:
+    types: [published]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+      continue-on-error: false
+    
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        auto-update-conda: true
+        channels: conda-forge,geompy,defaults
+        channel-priority: true
+    
+    - name: Install conda-build and anaconda-client
+      shell: bash -l {0}
+      run: |
+        set -e  # Exit on any error
+        echo "Installing conda-build and anaconda-client..."
+        conda install conda-build anaconda-client -y
+        echo "✅ Tools installed successfully"
+        conda --version
+        conda-build --version
+    
+    - name: Extract version from tag
+      shell: bash
+      run: |
+        set -e  # Exit on any error
+        TAG="${GITHUB_REF#refs/tags/}"
+        echo "Full tag: $TAG"
+        
+        # Validate tag format
+        if [[ ! $TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+ ]]; then
+          echo "❌ ERROR: Tag format invalid. Expected v1.0.0, got: $TAG"
+          exit 1
+        fi
+        
+        VERSION=${TAG#v}
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+        echo "✅ Extracted version: $VERSION"
+    
+    - name: Verify conda-recipe/meta.yaml exists
+      shell: bash
+      run: |
+        if [ ! -f "conda-recipe/meta.yaml" ]; then
+          echo "❌ ERROR: conda-recipe/meta.yaml not found!"
+          echo "Current directory: $(pwd)"
+          echo "Contents:"
+          ls -la conda-recipe/ 2>/dev/null || echo "conda-recipe/ directory not found"
+          exit 1
+        fi
+        echo "✅ meta.yaml found"
+        echo "Current content:"
+        head -10 conda-recipe/meta.yaml
+    
+    - name: Update meta.yaml with version from tag
+      shell: bash
+      run: |
+        set -e
+        VERSION="${{ env.VERSION }}"
+        echo "Updating meta.yaml with version: $VERSION"
+        
+        # Backup original
+        cp conda-recipe/meta.yaml conda-recipe/meta.yaml.backup
+        
+        # Update version line
+        sed -i "s/{%.*set version = .*%}/{%\ set version = \"$VERSION\" %}/g" conda-recipe/meta.yaml
+        
+        # Verify the update worked
+        if grep -q "set version = \"$VERSION\"" conda-recipe/meta.yaml; then
+          echo "✅ meta.yaml updated successfully"
+          grep "set version" conda-recipe/meta.yaml | head -1
+        else
+          echo "❌ ERROR: Version not updated in meta.yaml"
+          echo "Expected: set version = \"$VERSION\""
+          echo "Got:"
+          grep "set version" conda-recipe/meta.yaml || echo "No version line found"
+          exit 1
+        fi
+    
+    - name: Build conda package
+      shell: bash -l {0}
+      run: |
+        set -e
+        echo "Starting conda-build..."
+        echo "Recipe location: $(pwd)/conda-recipe"
+        
+        conda build conda-recipe --output-folder dist/
+        
+        if [ $? -eq 0 ]; then
+          echo "✅ Build successful"
+          echo "Built packages:"
+          ls -lh dist/noarch/
+        else
+          echo "❌ Build failed"
+          exit 1
+        fi
+    
+    - name: Verify build artifacts exist
+      shell: bash
+      run: |
+        set -e
+        if [ -z "$(ls -A dist/noarch/ 2>/dev/null)" ]; then
+          echo "❌ ERROR: No packages found in dist/noarch/"
+          exit 1
+        fi
+        echo "✅ Build artifacts found:"
+        ls -lh dist/noarch/
+    
+    - name: Publish to Anaconda Cloud
+      shell: bash -l {0}
+      if: success()
+      env:
+        ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+      run: |
+        set -e
+        
+        # Verify token exists
+        if [ -z "$ANACONDA_TOKEN" ]; then
+          echo "❌ ERROR: ANACONDA_TOKEN secret not set"
+          echo "Please add ANACONDA_TOKEN to GitHub repo secrets"
+          exit 1
+        fi
+        
+        echo "Publishing to Anaconda Cloud..."
+        UPLOAD_FAILED=0
+        
+        # Upload .tar.bz2 files
+        if ls dist/noarch/*.tar.bz2 1> /dev/null 2>&1; then
+          echo "Uploading .tar.bz2 packages..."
+          if anaconda -t $ANACONDA_TOKEN upload dist/noarch/*.tar.bz2 --force; then
+            echo "✅ .tar.bz2 upload successful"
+          else
+            echo "⚠️ .tar.bz2 upload failed (non-blocking)"
+            UPLOAD_FAILED=1
+          fi
+        else
+          echo "⚠️ No .tar.bz2 files found"
+        fi
+        
+        # Upload .conda files
+        if ls dist/noarch/*.conda 1> /dev/null 2>&1; then
+          echo "Uploading .conda packages..."
+          if anaconda -t $ANACONDA_TOKEN upload dist/noarch/*.conda --force; then
+            echo "✅ .conda upload successful"
+          else
+            echo "⚠️ .conda upload failed (non-blocking)"
+            UPLOAD_FAILED=1
+          fi
+        else
+          echo "⚠️ No .conda files found"
+        fi
+        
+        if [ $UPLOAD_FAILED -eq 1 ]; then
+          echo "⚠️ Some uploads failed, but artifacts are saved"
+        else
+          echo "✅ All uploads successful"
+        fi
+    
+    - name: Upload build artifacts to GitHub
+      uses: actions/upload-artifact@v4
+      if: always()  # Upload even if publish fails
+      with:
+        name: conda-packages-${{ env.VERSION }}
+        path: dist/noarch/
+        retention-days: 30
+      continue-on-error: true
+    
+    - name: Summary
+      if: always()
+      shell: bash
+      run: |
+        echo "=== Build Summary ==="
+        echo "Version: ${{ env.VERSION }}"
+        echo "Artifacts:"
+        ls -lh dist/noarch/ 2>/dev/null || echo "No artifacts found"
+        echo ""
+        if [ -f conda-recipe/meta.yaml ]; then
+          echo "meta.yaml version:"
+          grep "set version" conda-recipe/meta.yaml | head -1
+        fi
