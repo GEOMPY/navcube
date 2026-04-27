@@ -1,5 +1,5 @@
 # Core dependencies (always required)
-PySide6>=6.4.0
+PySide6>=6.11.0
 numpy>=1.21.0
 
 # Optional — only needed if you use the OCC connector (navicube.connectors.occ)
